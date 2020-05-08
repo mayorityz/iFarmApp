@@ -1,0 +1,70 @@
+/* your styles go here */
+@import url('https://fonts.googleapis.com/css?family=Cabin|Comic+Neue|Inria+Sans&display=swap');
+
+
+* {
+	font-family: 'Cabin', sans-serif;
+}
+
+table {
+	font-family: 'Cabin', sans-serif;
+}
+
+.header4 {
+	font-family: 'Inria Sans', sans-serif;
+}
+
+#setBg {
+	/*background-image: url("../img/imgs/bg.png");
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;*/
+}
+
+.marketplace_dashboard {
+	display: flex;
+}
+
+.place_items {
+	position: relative;
+	width: 33.3%;
+	background-color: #fff;
+	height: 350px;
+	margin: 4px;
+	border-radius: 15px;
+}
+
+.place_items:hover {
+	background-color: red;
+}
+
+.cover_ {
+	background-color: #4bcc7069;
+	height: 100%;
+	width: 100%;
+	position: absolute;
+	top: 0;
+	cursor: pointer;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: 15px;
+	flex-direction: column;
+}
+
+.cover_:hover {
+	display: none;
+}
+
+.cover_ h4 {
+	text-transform: uppercase;
+	font-size: 20px
+}
+
+.cover_ h6 {
+	font-size: 15px;
+}
+
+.icon-size {
+	font-size: 25px;
+}

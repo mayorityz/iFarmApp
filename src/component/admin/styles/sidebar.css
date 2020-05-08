@@ -1,0 +1,144 @@
+.sidebar_ {
+    margin: 0px;
+    padding: 0px;
+    background-color: #212529;
+    width: 200px;
+    position: fixed;
+    height: 100%;
+}
+
+.sidebar_ ul {
+    list-style: none;
+    padding: 0px;
+}
+
+.sidebar_ a {
+    display: block;
+    text-transform: uppercase;
+    color: white;
+    background-color: #33b35a;
+    padding: 10px;
+    text-decoration: none;
+    margin-bottom: 5px;
+    position: relative;
+}
+
+.sidebar_ a:hover {
+    color: black;
+    background-color: white;
+    border-right: 12px solid #33b35a;
+    font-weight: bold;
+}
+
+.sidebar_ a>span {
+    color: #000;
+    position: absolute;
+    top: 35%;
+    right: 10px;
+    font-size: 17px;
+    background-color: white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.sidebar_header {
+    background-color: white;
+    color: #000;
+    text-align: center;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+    border: 2px solid #000;
+}
+
+.ui-section {
+    margin: 0px;
+    margin-left: 200px;
+    background-color: #f6f6f6;
+    height: 1000px;
+}
+
+.routes {
+    width: 100%;
+    padding: 5px 10px;
+    background-color: lightgreen;
+}
+
+.dashboard_numbers {
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 15px;
+}
+
+.dashboard_numbers>div {
+    width: 30%;
+    height: 150px;
+    color: #fff;
+    background-color: #000;
+    position: relative;
+    padding: 20px;
+    box-shadow: 0 4px 11px -8px black;
+}
+
+.dashboard_numbers>div>h4 {
+    font-size: 25px;
+    width: 60%;
+}
+
+.dashboard_numbers>div>span {
+    font-size: 124px;
+    color: #b37a33;
+    position: absolute;
+    bottom: 0px;
+    right: 11px;
+}
+
+.homeIcons {
+    color: #bf832845;
+    padding: 8px;
+    font-size: 150px;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.admin_products {
+    box-sizing: border-box;
+    padding: 10px;
+    background-color: #efebec;
+    margin-bottom: 10px;
+}
+
+.delete_icon_prod {
+    color: red;
+    position: absolute;
+    top: 20px;
+    right: 29px;
+    cursor: pointer;
+}
+
+.delete_icon_prod:hover {
+    color: black;
+}
+
+
+.admin_products:hover {
+    box-shadow: 0 4px 8px -6px black;
+}
+
+.admin_products img {
+    width: 100%;
+}
+
+.admin_products a {
+    color: blue;
+    margin: 10px 10px 0px;
+}
+
+.admin_products p {
+    margin: 0px 10px;
+}

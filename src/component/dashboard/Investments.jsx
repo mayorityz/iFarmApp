@@ -3,6 +3,7 @@ import commafy from "commafy";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import { Sugar } from "react-preloaders";
+import * as Time from "moment";
 
 const Investment = ({ user }) => {
   const url = `https://ifarms-app.herokuapp.com/myinvestments/${user.id}`;
@@ -18,6 +19,8 @@ const Investment = ({ user }) => {
       })
       .catch((err) => console.log(err));
   }, [url]);
+  const convert = (timeString) =>
+    Time(timeString).format("DD-MM-YY : h:mm:ss a");
   return (
     <>
       <Sugar customLoading={isLoading} />
@@ -43,20 +46,21 @@ const Investment = ({ user }) => {
             <div className="col-md-8">
               <div className="card">
                 <div className="card-header d-flex align-items-center">
-                  <h4>Investment Record</h4>
+                  <h4>My Investment Record.</h4>
                 </div>
                 <div className="card-body">
                   {!data ? (
                     <div>Fetching Your Data ...</div>
                   ) : (
-                    <table className="table table-striped table-hover table-borderless table-responsive">
-                      <thead className="thead-dark">
+                    <table className="table table-hover table-bordered table-responsive table-sm">
+                      <thead className="thead-light">
                         <tr>
+                          <th>#</th>
                           <th scope="col">Investment Amt</th>
                           <th scope="col">Monthly Returns</th>
                           <th scope="col">Total Payout</th>
-                          <th scope="col">Date Started</th>
-                          <th scope="col">Due Date</th>
+                          <th scope="col">Began</th>
+                          <th scope="col">Completion</th>
                           <th scope="col">Duration</th>
                           <th scope="col">Action</th>
                         </tr>
@@ -64,14 +68,15 @@ const Investment = ({ user }) => {
                       <tbody>
                         {data.map((d, i) => (
                           <tr key={i}>
+                            <td>{i + 1}</td>
                             <td>&#8358;{commafy(d.investmentAmt)}</td>
                             <td>&#8358;{commafy(d.monthlyReturn)}</td>
                             <td>&#8358;{commafy(d.expectedTotal)}</td>
-                            <td>{d.created}</td>
-                            <td>{d.dueDate}</td>
+                            <td>{convert(d.created)}</td>
+                            <td>{convert(d.dueDate)}</td>
                             <td>{d.duration} months</td>
                             <td>
-                              <Link to="" className="btn btn-primary btn-block">
+                              <Link to="" className="btn btn-primary btn-xs">
                                 More Details
                               </Link>
                             </td>

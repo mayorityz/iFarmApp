@@ -20,7 +20,7 @@ const Market = () => {
     },
   };
   Modal.setAppElement("#root");
-  const url = "https://ifarms-app.herokuapp.com/myinvestments/allproducts";
+  const url = "http://localhost:8080/allproducts";
 
   useEffect(() => {
     axios

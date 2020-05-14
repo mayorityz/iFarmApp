@@ -10,6 +10,12 @@ table {
 	font-family: 'Cabin', sans-serif;
 }
 
+table th,
+table td {
+	color: blue !important;
+	font-size: 12px;
+}
+
 .header4 {
 	font-family: 'Inria Sans', sans-serif;
 }

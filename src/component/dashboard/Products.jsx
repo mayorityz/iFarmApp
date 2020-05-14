@@ -3,6 +3,8 @@ import axios from "axios";
 import Modal from "react-modal";
 import { Link } from "react-router-dom";
 import { Sugar } from "react-preloaders";
+import * as Time from "moment";
+import commafy from "commafy";
 
 const Products = ({ user }) => {
   const [modalState, setModalState] = useState([]);
@@ -48,6 +50,8 @@ const Products = ({ user }) => {
   function closeModal() {
     setIsOpen(false);
   }
+
+  const convert = (timeString) => Time(timeString).format("DD, MMMM YYYY");
   return (
     <>
       <Sugar customLoading={loading} />
@@ -87,12 +91,12 @@ const Products = ({ user }) => {
                   {!data ? (
                     <div>Fetching Data ...</div>
                   ) : (
-                    <table className="table table-hover table-striped">
-                      <thead>
+                    <table className="table table-hover table-striped table-bordered">
+                      <thead className="thead-light">
                         <tr>
+                          <td>#</td>
                           <td>Title</td>
-                          <td>Price</td>
-                          <td>Image</td>
+                          <td>Price/Rate</td>
                           <td>Category</td>
                           <td>Date Uploaded</td>
                           <td>Status</td>
@@ -104,13 +108,14 @@ const Products = ({ user }) => {
                       <tbody>
                         {data.map((d, i) => (
                           <tr key={i}>
+                            <td>{i + 1}</td>
                             <td>{d.title}</td>
                             <td>
-                              &#8358;{d.price}/{d.quantity} {d.measurement}
+                              &#8358;{commafy(d.price)}/{d.quantity}{" "}
+                              {d.measurement}
                             </td>
-                            <td>{<img src={d.imgUrls[0]} alt="" />}</td>
                             <td>Cash Crops</td>
-                            <td>{d.uploaded}</td>
+                            <td>{convert(d.uploaded)}</td>
                             <td>
                               <button className="btn btn-sm btn-block btn-success">
                                 Active

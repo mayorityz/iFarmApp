@@ -9,7 +9,7 @@ import axios from "axios";
 
 const NewInvestment = (props) => {
   const userID = props.user.id;
-  const url = "https://ifarms-app.herokuapp.com/newinvestment";
+  const url = "http://localhost:8080/newinvestment";
   const [investmentAmt, setInvestment] = useState(100000);
   const [duration, setDuration] = useState(3);
   const [monthly, setMonthly] = useState("");

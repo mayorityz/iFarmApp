@@ -14,6 +14,7 @@ import axios from "axios";
 
 const AdminUsers = () => {
   const url = "https://ifarms-app.herokuapp.com/allusers";
+  const removeUserUrl = "http://localhost:8080/user/delete";
   const [loading, setLoading] = useState(true);
   const [users, setUsers] = useState([]);
 
@@ -28,6 +29,17 @@ const AdminUsers = () => {
         console.log(err);
       });
   }, [url]);
+
+  const removeUser = (id) => {
+    axios
+      .post(removeUserUrl, { id })
+      .then((response) => {
+        console.log(response);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
 
   return (
     <>
@@ -137,7 +149,12 @@ const AdminUsers = () => {
                           </button>
                         </td>
                         <td>
-                          <button className="btn btn-xs">
+                          <button
+                            className="btn btn-xs"
+                            onClick={() => {
+                              removeUser(user._id);
+                            }}
+                          >
                             <FiUserX style={{ fontSize: "20px" }} />
                           </button>
                         </td>

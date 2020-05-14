@@ -108,9 +108,6 @@ const AdminInvestments = () => {
                   </select>
                 </form>
               </div>
-              <div className="col-md-3">
-                <h6>Total Active Amt : N450,000</h6>
-              </div>
             </div>
             <hr />
             <table className="table table-hover table-striped">
@@ -140,7 +137,8 @@ const AdminInvestments = () => {
                       <tr key={i}>
                         <td>
                           <Link to="#">
-                            <FiUser /> Abiiodun Myowa
+                            <FiUser /> {inv_.investorDetails.firstName}{" "}
+                            {inv_.investorDetails.lastName}
                           </Link>
                         </td>
                         <td>{inv_.duration} Months</td>

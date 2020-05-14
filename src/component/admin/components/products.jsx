@@ -7,6 +7,7 @@ import * as moment from "moment";
 import commafy from "commafy";
 const AdminProducts = () => {
   const url = "https://ifarms-app.herokuapp.com/allproducts";
+  const deleteUrl = "http://localhost:8080/products/deleteitem";
   const [loading, isLoaded] = useState(true);
   const [products, setProducts] = useState([]);
   let store = [...products];
@@ -16,6 +17,14 @@ const AdminProducts = () => {
       return x._id !== id;
     });
     setProducts(y);
+    axios
+      .post(deleteUrl, { id })
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
     // run a script to remove it from a db...
   };
 

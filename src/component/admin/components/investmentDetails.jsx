@@ -78,15 +78,32 @@ const InvestmentDetails = () => {
                     </h5>
                     <hr />
                     <h6>Payout History</h6>
-                    {!details.history ? (
-                      <p>No History On This Investment Yet</p>
-                    ) : (
-                      <p>No Payouts Yet!</p>
-                    )}
-                    <p className="card-text"></p>
-                    <Link to="#0" className="btn btn-primary">
-                      Go somewhere
-                    </Link>
+                    <table className="table table-hover">
+                      <thead>
+                        <tr>
+                          <th>Due Date</th>
+                          <th>Status</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {details.payoutSchedule.map((schedule, i) => (
+                          <tr key={i}>
+                            <td>{schedule.date}</td>
+                            <td>
+                              {schedule.status === "unpaid" ? (
+                                <button className="btn btn-xs btn-warning">
+                                  {schedule.status}
+                                </button>
+                              ) : (
+                                <button className="btn btn-xs btn-success">
+                                  paid
+                                </button>
+                              )}
+                            </td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
                   </>
                 )}
               </div>

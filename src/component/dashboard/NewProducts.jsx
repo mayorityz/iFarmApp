@@ -5,7 +5,7 @@ import axios from "axios";
 const NewProduct = ({ user }) => {
   const alert = useAlert();
 
-  const url = "https://ifarms-app.herokuapp.com/newproduct";
+  const url = "http://localhost:8080/newproduct";
   const [title, setTitle] = useState("");
   const [category, setCategory] = useState("");
   const [price, setPrice] = useState("");

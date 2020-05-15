@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { MdShoppingCart } from "react-icons/md";
 import { Link } from "react-router-dom";
 
 const SideBar = () => {
@@ -63,7 +64,12 @@ const SideBar = () => {
                   <i className="fa fa-user-circle-o"></i>My Account
                 </Link>
               </li>
-
+              <li>
+                <Link to="./shopping-cart">
+                  <MdShoppingCart />
+                  Shopping Cart
+                </Link>
+              </li>
               <li onClick={logout}>
                 <Link to="#logout">
                   <i className="fa fa-sign-out"></i>LogOut

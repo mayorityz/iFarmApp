@@ -31,6 +31,7 @@ const Cart = ({ user }) => {
       return item._id === id;
     });
     items[index] = i[0];
+    storage.setItem("ifarms-cart", JSON.stringify(items));
     setTotalPrice(getTotal(items));
   };
 

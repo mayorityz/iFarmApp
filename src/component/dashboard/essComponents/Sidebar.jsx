@@ -66,8 +66,12 @@ const SideBar = () => {
               </li>
               <li>
                 <Link to="./shopping-cart">
-                  <MdShoppingCart />
-                  Shopping Cart
+                  <MdShoppingCart /> Shopping Cart
+                </Link>
+              </li>
+              <li>
+                <Link to="./shopping-cart">
+                  <MdShoppingCart /> My Orders
                 </Link>
               </li>
               <li onClick={logout}>

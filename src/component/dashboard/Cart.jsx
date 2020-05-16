@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import CartRows from "./essComponents/CartTables";
+import axios from "axios";
 const getTotal = (x) => {
   let t = 0;
   for (let i = 0; i < x.length; i++) {
@@ -18,7 +19,7 @@ const Cart = ({ user }) => {
     if (storageItems !== null) {
       setItems(JSON.parse(storageItems));
     }
-  }, []);
+  }, [storageItems]);
 
   const changeTotal = (qty, id) => {
     let i = items.filter((item) => {
@@ -26,6 +27,7 @@ const Cart = ({ user }) => {
     });
     i[0].total = qty * i[0].price;
     i[0].qty = parseInt(qty);
+    i[0].status = "pending";
 
     let index = items.findIndex((item) => {
       return item._id === id;
@@ -35,7 +37,21 @@ const Cart = ({ user }) => {
     setTotalPrice(getTotal(items));
   };
 
-  // getTotal(items);
+  const checkout = () => {
+    axios
+      .post("http://localhost:8080/products/checkout", {
+        userId: user.id,
+        cart: items,
+        price: totalPrice,
+      })
+      .then(({ data }) => {
+        if (data.status === "failed") console.log(data.msg);
+        else window.location = data.msg;
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
 
   return (
     <>
@@ -58,7 +74,7 @@ const Cart = ({ user }) => {
           <p>{items.length}</p>
           <div className="row">
             <div className="col-md-8">
-              <table className="table">
+              <table className="table table-hover table-stripped">
                 <thead>
                   <tr>
                     <th>#</th>
@@ -85,7 +101,10 @@ const Cart = ({ user }) => {
             </div>
             <div className="col-md-4">
               <h1>Total : N{totalPrice}</h1>
-              <button className="btn btn-dark btn-lg btn-block">
+              <button
+                className="btn btn-dark btn-lg btn-block"
+                onClick={checkout}
+              >
                 Pay Now!
               </button>
             </div>

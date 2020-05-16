@@ -50,6 +50,9 @@ const MarketPlace = () => {
     case "shopping-cart":
       page_ = <Cart user={access} />;
       break;
+    case "orders":
+      page_ = <Cart user={access} />;
+      break;
     default:
       page_ = "<h3>page not found</h3>";
       break;

@@ -13,6 +13,7 @@ import AdminInvestments from "./investments";
 import AdminHome from "../pages/Home";
 import AdminProducts from "./products";
 import InvestmentDetails from "./investmentDetails";
+import Orders from "./orders";
 
 /**
  * users, investments, orders, account balance, messaging, dashboard
@@ -86,6 +87,9 @@ const AdminSideBar = () => {
         </Route>
         <Route path={`${path}/investments`}>
           <AdminInvestments />
+        </Route>
+        <Route path={`${path}/orders`}>
+          <Orders />
         </Route>
         <Route path={`${path}/products`}>
           <AdminProducts />

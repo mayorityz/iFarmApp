@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react";
 import CartRows from "./essComponents/CartTables";
+import * as queryString from "query-string";
 import axios from "axios";
 const getTotal = (x) => {
+  if (!x) return [];
   let t = 0;
   for (let i = 0; i < x.length; i++) {
     t += x[i]["total"];
@@ -10,12 +12,15 @@ const getTotal = (x) => {
 };
 const Cart = ({ user }) => {
   let storage = window.localStorage;
+  let url = window.location.search;
   let storageItems = storage.getItem("ifarms-cart");
   const [items, setItems] = useState([]);
   const [totalPrice, setTotalPrice] = useState(
     getTotal(JSON.parse(storageItems))
   );
   useEffect(() => {
+    const parsed = queryString.parse(url);
+    if (parsed.status === "completed") storage.removeItem("ifarms-cart");
     if (storageItems !== null) {
       setItems(JSON.parse(storageItems));
     }
@@ -60,7 +65,7 @@ const Cart = ({ user }) => {
           <div className="container-fluid">
             <ul className="breadcrumb">
               <li className="breadcrumb-item">
-                <a href="index-2.html">Home</a>
+                <a href="/dashboard">Home</a>
               </li>
               <li className="breadcrumb-item active">My Cart </li>
             </ul>

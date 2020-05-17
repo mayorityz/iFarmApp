@@ -1,0 +1,11 @@
+import React from "react";
+
+const Orders = () => {
+  return (
+    <>
+      <h4>Ordes</h4>
+    </>
+  );
+};
+
+export default Orders;

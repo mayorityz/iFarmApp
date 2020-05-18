@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import commafy from "commafy";
 import axios from "axios";
-
+import * as utility from "../../utility.json"
 /**
  * rates - 2% for btw 100k n 1m
  * ------- 3% above 1m
@@ -9,7 +9,7 @@ import axios from "axios";
 
 const NewInvestment = (props) => {
   const userID = props.user.id;
-  const url = "http://localhost:8080/newinvestment";
+  const url = `${utility.production.server}/newinvestment`;
   const [investmentAmt, setInvestment] = useState(100000);
   const [duration, setDuration] = useState(3);
   const [monthly, setMonthly] = useState("");

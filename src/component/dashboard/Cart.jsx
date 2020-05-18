@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import CartRows from "./essComponents/CartTables";
 import * as queryString from "query-string";
 import axios from "axios";
+import * as utility from "../../utility.json"
 const getTotal = (x) => {
   if (!x) return [];
   let t = 0;
@@ -44,7 +45,7 @@ const Cart = ({ user }) => {
 
   const checkout = () => {
     axios
-      .post("http://localhost:8080/products/checkout", {
+      .post(`${utility.production.server}/products/checkout`, {
         userId: user.id,
         cart: items,
         price: totalPrice,

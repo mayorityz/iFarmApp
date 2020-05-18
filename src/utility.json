@@ -1,0 +1,8 @@
+{
+    "production" : {
+        "server" : "https://ifarms-app.herokuapp.com"
+    },
+    "test" : {
+        "server" : "http://localhost:8080"
+    }
+}

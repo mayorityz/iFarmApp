@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import * as utility from "../../utility.json"
 
-const url = "http://localhost:8080/products/edit";
+const url = `${utility.production.server}/products/edit`;
 const EditProduct = ({ data }) => {
   const [id, setId] = useState("");
   const [title, setTitle] = useState("");

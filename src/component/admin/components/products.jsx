@@ -5,9 +5,11 @@ import { Sugar } from "react-preloaders";
 import axios from "axios";
 import * as moment from "moment";
 import commafy from "commafy";
+import * as utility from "../../../utility.json"
+
 const AdminProducts = () => {
-  const url = "https://ifarms-app.herokuapp.com/allproducts";
-  const deleteUrl = "http://localhost:8080/products/deleteitem";
+  const url = `${utility.production.server}/allproducts`;
+  const deleteUrl = `${utility.production.server}/products/deleteitem`;
   const [loading, isLoaded] = useState(true);
   const [products, setProducts] = useState([]);
 

@@ -2,13 +2,14 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import OrderDetails from "./orderDetails";
+import * as utility from "../../../utility.json"
 
 const Order = () => {
   const [orders, setOrders] = useState([]);
   const [displayDetails, setDetails] = useState([]);
   useEffect(() => {
     axios
-      .get("http://localhost:8080/orders/selectall")
+      .get(`${utility.production.server}/orders/selectall`)
       .then(({ data }) => {
         console.log(data);
         if (data.length !== 0) {

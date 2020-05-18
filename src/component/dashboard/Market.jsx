@@ -5,6 +5,7 @@ import { MdShoppingCart, MdInfo } from "react-icons/md";
 import Modal from "react-modal";
 import axios from "axios";
 import commafy from "commafy";
+import * as utility from "../../utility.json"
 
 const Market = ({ user }) => {
   const alert = useAlert();
@@ -23,7 +24,7 @@ const Market = ({ user }) => {
     },
   };
   Modal.setAppElement("#root");
-  const url = "http://localhost:8080/allproducts";
+  const url = `${utility.production.server}/allproducts`;
 
   useEffect(() => {
     axios

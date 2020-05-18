@@ -4,9 +4,10 @@ import axios from "axios";
 import { Sugar } from "react-preloaders";
 import InvestmentDetails from "./InvestmentDetails.jsx";
 import * as Time from "moment";
+import * as utility from "../../utility.json"
 
 const Investment = ({ user }) => {
-  const url = `https://ifarms-app.herokuapp.com/myinvestments/${user.id}`;
+  const url = `${utility.production.server}/myinvestments/${user.id}`;
   const [isLoading, Loaded] = useState(true);
   const [data, setData] = useState(false);
   const [details, showDets] = useState([]);

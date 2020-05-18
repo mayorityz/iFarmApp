@@ -5,6 +5,7 @@ import { Sugar } from "react-preloaders";
 import * as Time from "moment";
 import commafy from "commafy";
 import EditProduct from "./EditProduct";
+import * as utility from "../../utility.json"
 
 const Products = ({ user }) => {
   const [modalState, setModalState] = useState([]);
@@ -22,8 +23,8 @@ const Products = ({ user }) => {
     },
   };
   Modal.setAppElement("#root");
-  const url = `https://ifarms-app.herokuapp.com/fetchproducts/${user.id}`;
-  const deleteUrl = "http://localhost:8080/products/deleteitem";
+  const url = `${utility.production.server}/fetchproducts/${user.id}`;
+  const deleteUrl = `${utility.production.server}/products/deleteitem`;
   const [data, setData] = useState(false);
   useEffect(() => {
     axios

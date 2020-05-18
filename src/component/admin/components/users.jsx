@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Sugar } from "react-preloaders";
 import { Link } from "react-router-dom";
+import * as utility from "../../../utility.json"
 import {
   FiUser,
   FiUsers,
@@ -13,8 +14,8 @@ import {
 import axios from "axios";
 
 const AdminUsers = () => {
-  const url = "https://ifarms-app.herokuapp.com/allusers";
-  const removeUserUrl = "http://localhost:8080/user/delete";
+  const url = `${utility.production.server}/allusers`;
+  const removeUserUrl = `${utility.production.server}/user/delete`;
   const [loading, setLoading] = useState(true);
   const [users, setUsers] = useState([]);
 

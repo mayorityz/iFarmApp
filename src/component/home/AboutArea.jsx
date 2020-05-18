@@ -109,26 +109,23 @@ const AboutSection = () => {
               <h3 className="mb-15px mt-20px">
                 <p>Three things we are here to bring to all peoples</p>
               </h3>
-              <p className="mb-30px">
-                <ol>
-                  <li>
-                    Healthy organic food to your doorsteps as consumers at very
-                    affordable prices anywhere you are
-                  </li>
-                  <li>
-                    Loans and incomes to all farmers and farmers' cooperatives
-                    by creating wealth for you and also granting loans you do
-                    not need to pay since your farm products will be used to
-                    repay.
-                  </li>
-                  <li>
-                    Investment opportunities to those who want to invest with
-                    us, and farms for those who want to have their own farms.
-                    Ifarm is managed by time tested business managers and
-                    Agricultural experts from the USA and Nigeria.
-                  </li>
-                </ol>
-              </p>
+              <ol className="mb-30px">
+                <li>
+                  Healthy organic food to your doorsteps as consumers at very
+                  affordable prices anywhere you are
+                </li>
+                <li>
+                  Loans and incomes to all farmers and farmers' cooperatives by
+                  creating wealth for you and also granting loans you do not
+                  need to pay since your farm products will be used to repay.
+                </li>
+                <li>
+                  Investment opportunities to those who want to invest with us,
+                  and farms for those who want to have their own farms. Ifarm is
+                  managed by time tested business managers and Agricultural
+                  experts from the USA and Nigeria.
+                </li>
+              </ol>
               <p>
                 Its a synergy of experts, Cybersecurity specialists, Agriculture
                 Consultants, Bankers and Information technologists. We assure

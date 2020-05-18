@@ -60,7 +60,7 @@ const NewProduct = ({ user }) => {
           <div className="container-fluid">
             <ul className="breadcrumb">
               <li className="breadcrumb-item">
-                <a href="index-2.html">Home</a>
+                <a href="/dashboard">Home</a>
               </li>
               <li className="breadcrumb-item active">Upload New Product </li>
             </ul>

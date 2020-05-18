@@ -24,7 +24,7 @@ const Cart = ({ user }) => {
     if (storageItems !== null) {
       setItems(JSON.parse(storageItems));
     }
-  }, [storageItems]);
+  }, [storageItems, storage, url]);
 
   const changeTotal = (qty, id) => {
     let i = items.filter((item) => {

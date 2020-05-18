@@ -10,7 +10,6 @@ const AdminProducts = () => {
   const deleteUrl = "http://localhost:8080/products/deleteitem";
   const [loading, isLoaded] = useState(true);
   const [products, setProducts] = useState([]);
-  let store = [...products];
 
   const removeItem = (id) => {
     let y = products.filter((x) => {
@@ -30,7 +29,7 @@ const AdminProducts = () => {
 
   const filterSearch = ({ currentTarget }) => {
     const value = currentTarget.value;
-    let y = products.filter((product) => {
+    products.filter((product) => {
       return product.title.includes(value);
     });
   };

@@ -1,14 +1,15 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Modal from "react-modal";
-import { Link } from "react-router-dom";
 import { Sugar } from "react-preloaders";
 import * as Time from "moment";
 import commafy from "commafy";
+import EditProduct from "./EditProduct";
 
 const Products = ({ user }) => {
   const [modalState, setModalState] = useState([]);
   const [loading, loaded] = useState(true);
+  const [edit, enableEdit] = useState([]);
   const customStyles = {
     content: {
       width: "50%",
@@ -22,6 +23,7 @@ const Products = ({ user }) => {
   };
   Modal.setAppElement("#root");
   const url = `https://ifarms-app.herokuapp.com/fetchproducts/${user.id}`;
+  const deleteUrl = "http://localhost:8080/products/deleteitem";
   const [data, setData] = useState(false);
   useEffect(() => {
     axios
@@ -34,6 +36,13 @@ const Products = ({ user }) => {
         console.log(err);
       });
   }, [url]);
+
+  const editProduct = (id) => {
+    const edit = data.filter((d) => {
+      return d._id === id;
+    });
+    enableEdit(edit);
+  };
 
   var subtitle;
   const [modalIsOpen, setIsOpen] = React.useState(false);
@@ -51,6 +60,22 @@ const Products = ({ user }) => {
     setIsOpen(false);
   }
 
+  const deleteProduct = (id) => {
+    let item = data.filter((d) => {
+      return d._id !== id;
+    });
+    setData(item);
+    axios
+      .post(deleteUrl, { id })
+      .then((res) => {
+        console.log(res);
+        enableEdit([])
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
   const convert = (timeString) => Time(timeString).format("DD, MMMM YYYY");
   return (
     <>
@@ -60,7 +85,7 @@ const Products = ({ user }) => {
           <div className="container-fluid">
             <ul className="breadcrumb">
               <li className="breadcrumb-item">
-                <a href="index-2.html">Home</a>
+                <a href="/dashboard">Home</a>
               </li>
               <li className="breadcrumb-item active">My Items </li>
             </ul>
@@ -69,20 +94,13 @@ const Products = ({ user }) => {
       </div>
       <section className="mt-30px mb-30px">
         <div className="container">
-          <div className="row justify-content-md-center">
+          <div className="row">
             <div className="col-md-8">
               <div className="card">
                 <div className="card-header d-flex align-items-center">
                   <h4>My Products.</h4>
                 </div>
                 <div className="card-body">
-                  <img
-                    src="../images/dashboard/product.png"
-                    className="img-thumbnail img-fluid mx-auto d-block"
-                    alt=""
-                    style={{ width: "50%" }}
-                  />
-                  <hr />
                   {data ? (
                     <h6>You have {data.length} item(s) in the Market Place</h6>
                   ) : (
@@ -114,7 +132,7 @@ const Products = ({ user }) => {
                               &#8358;{commafy(d.price)}/{d.quantity}{" "}
                               {d.measurement}
                             </td>
-                            <td>Cash Crops</td>
+                            <td>{d.category}</td>
                             <td>{convert(d.uploaded)}</td>
                             <td>
                               <button className="btn btn-sm btn-block btn-success">
@@ -132,18 +150,22 @@ const Products = ({ user }) => {
                               </button>
                             </td>
                             <td>
-                              <Link
+                              <button
                                 to=""
                                 className="btn btn-xs btn-block btn-warning"
+                                onClick={() => {
+                                  editProduct(d._id);
+                                }}
                               >
                                 Edit
-                              </Link>
-                              <Link
+                              </button>
+                              <button
                                 to=""
                                 className="btn btn-xs btn-block btn-danger"
+                                onClick={() => deleteProduct(d._id)}
                               >
                                 Delete
-                              </Link>
+                              </button>
                             </td>
                           </tr>
                         ))}
@@ -153,7 +175,20 @@ const Products = ({ user }) => {
                 </div>
               </div>
             </div>
+            {/* col-4 */}
+            <div className="col-md-4">
+              {edit.length === 0 ? (
+                <img
+                  src="../images/dashboard/product.png"
+                  className="img-thumbnail img-fluid mx-auto d-block"
+                  alt=""
+                />
+              ) : (
+                <EditProduct data={edit} />
+              )}
+            </div>
           </div>
+
           {!loading ? (
             ""
           ) : (

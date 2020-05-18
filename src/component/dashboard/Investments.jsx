@@ -1,14 +1,15 @@
 import React, { useState, useEffect } from "react";
 import commafy from "commafy";
 import axios from "axios";
-import { Link } from "react-router-dom";
 import { Sugar } from "react-preloaders";
+import InvestmentDetails from "./InvestmentDetails.jsx";
 import * as Time from "moment";
 
 const Investment = ({ user }) => {
   const url = `https://ifarms-app.herokuapp.com/myinvestments/${user.id}`;
   const [isLoading, Loaded] = useState(true);
   const [data, setData] = useState(false);
+  const [details, showDets] = useState([]);
   useEffect(() => {
     axios
       .get(url)
@@ -21,6 +22,13 @@ const Investment = ({ user }) => {
   }, [url]);
   const convert = (timeString) =>
     Time(timeString).format("DD-MM-YY : h:mm:ss a");
+
+  const showDetails =(id)=>{
+    let investment = data.filter(d=>{
+      return d._id === id;
+    })
+      showDets(investment);
+  }
   return (
     <>
       <Sugar customLoading={isLoading} />
@@ -29,7 +37,7 @@ const Investment = ({ user }) => {
           <div className="container-fluid">
             <ul className="breadcrumb">
               <li className="breadcrumb-item">
-                <a href="index-2.html">Home</a>
+                <a href="/dashboard">Home</a>
               </li>
               <li className="breadcrumb-item active">My Investments </li>
             </ul>
@@ -40,8 +48,11 @@ const Investment = ({ user }) => {
         <div className="container">
           <div className="row">
             <div className="col-md-4">
-              <img src="../images/dashboard/new_product.png" alt="" />
-              <hr />
+              {
+                details.length === 0 ? (<><img src="../images/dashboard/new_product.png" alt="" />
+              <hr /></>) : (<InvestmentDetails details={details} />)
+              }
+              
             </div>
             <div className="col-md-8">
               <div className="card">
@@ -56,7 +67,7 @@ const Investment = ({ user }) => {
                       <thead className="thead-light">
                         <tr>
                           <th>#</th>
-                          <th scope="col">Investment Amt</th>
+                          <th scope="col">Investment Amount</th>
                           <th scope="col">Monthly Returns</th>
                           <th scope="col">Total Payout</th>
                           <th scope="col">Began</th>
@@ -76,9 +87,9 @@ const Investment = ({ user }) => {
                             <td>{convert(d.dueDate)}</td>
                             <td>{d.duration} months</td>
                             <td>
-                              <Link to="" className="btn btn-primary btn-xs">
+                              <button onClick={()=>{showDetails(d._id)}} className="btn btn-primary btn-xs">
                                 More Details
-                              </Link>
+                              </button>
                             </td>
                           </tr>
                         ))}

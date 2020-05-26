@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import { useAlert } from "react-alert";
 import axios from "axios";
-import * as utility from "../../utility.json"
+import * as utility from "../../utility.json";
 
 const NewProduct = ({ user }) => {
   const alert = useAlert();
 
-  const url = `${utility.production.server}newproduct`;
+  const url = `${utility.production.server}/newproduct`;
   const [title, setTitle] = useState("");
   const [category, setCategory] = useState("");
   const [price, setPrice] = useState("");

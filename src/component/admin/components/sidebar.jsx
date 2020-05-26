@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   FiHome,
   FiUsers,
@@ -14,6 +14,8 @@ import AdminHome from "../pages/Home";
 import AdminProducts from "./products";
 import InvestmentDetails from "./investmentDetails";
 import Orders from "./orders";
+import AdminLogin from "./Login";
+import { logout } from "./../utility/session";
 
 /**
  * users, investments, orders, account balance, messaging, dashboard
@@ -21,11 +23,30 @@ import Orders from "./orders";
 
 const AdminSideBar = () => {
   let { path, url } = useRouteMatch();
+  let [open, setOpen_] = useState("");
+
+  const openMenu = () => {
+    setOpen_("isOpen");
+  };
+
+  const logout_ = () => {
+    logout();
+  };
+
+  const closeMenu = () => setOpen_("");
   return (
     <>
-      <div className="sidebar_">
+      <div id="openMenu" onClick={openMenu}>
+        &#9776; MENU
+      </div>
+      <div className="sidebar_" id={open}>
         <div className="sidebar_header">
-          <h3>iFarms Admin</h3>
+          <h3>
+            iFarms Admin{" "}
+            <span onClick={closeMenu} className="closeBtn">
+              &times;
+            </span>
+          </h3>
         </div>
         <ul>
           <li>
@@ -69,7 +90,7 @@ const AdminSideBar = () => {
             </Link>
           </li>
           <li>
-            <Link to={`${url}/logout`}>
+            <Link onClick={logout_} to="0#">
               <FiTrendingUp /> lOGOUT
               <span>
                 <FiChevronRight />
@@ -96,6 +117,9 @@ const AdminSideBar = () => {
         </Route>
         <Route path={`${path}/users`}>
           <AdminUsers />
+        </Route>
+        <Route path={`${path}/login`}>
+          <AdminLogin />
         </Route>
       </Switch>
     </>

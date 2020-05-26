@@ -1,20 +1,44 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 // stylesheets for the frontend
 
 import "./pageRoute/stylesheet/css/bootstrap.min.css";
-import "./pageRoute/stylesheet/css/animate.css";
+import "./pageRoute/stylesheet/css/et-line-icons.css";
 import "./pageRoute/stylesheet/css/font-awesome.min.css";
 import "./pageRoute/stylesheet/css/iconmonstr-iconic-font.min.css";
-import "./pageRoute/stylesheet/css/lightbox.css";
 import "./pageRoute/stylesheet/css/lity.min.css";
+import "./pageRoute/stylesheet/css/animate.css";
+
+import "./pageRoute/stylesheet/css/lightbox.css";
+
 // import "./pageRoute/stylesheet/css/owl.carousel.min.css";
-// import "./pageRoute/stylesheet/css/owl.theme.default.min.css";
-import "./pageRoute/stylesheet/css/responsive.css";
-import "./pageRoute/stylesheet/css/et-line-icons.css";
+import "./pageRoute/stylesheet/css/owl.theme.default.min.css";
+
 import "./pageRoute/stylesheet/main.css";
+import "./pageRoute/stylesheet/css/responsive.css";
 
 const Navigation = () => {
+  const [open, setOpen] = useState({
+    status: true,
+    a: "navbar-toggler collapsed",
+    b: "navbar-collapse collapse",
+  });
+
+  const toggleDropDown = () => {
+    !open.status
+      ? setOpen({
+          status: true,
+          a: "navbar-toggler collapsed",
+          b: "navbar-collapse collapse",
+          expanded: "false",
+        })
+      : setOpen({
+          status: false,
+          a: "navbar-toggler",
+          b: "navbar-collapse collapse show",
+          expanded: "true",
+        });
+  };
   return (
     <>
       <nav className="navbar navbar-index navbar-transparent navbar-black-links navbar-expand-lg">
@@ -23,17 +47,18 @@ const Navigation = () => {
             <img src="images/ifarm_90_30.png" alt="logo" />
           </a>
           <button
-            className="navbar-toggler"
+            className={open.a}
             type="button"
             data-toggle="collapse"
             data-target="#main-navbar"
             aria-controls="main-navbar"
-            aria-expanded="false"
+            aria-expanded={open.expanded}
             aria-label="Toggle navigation"
+            onClick={toggleDropDown}
           >
             <span className="fa fa-bars"></span>
           </button>
-          <div className="collapse navbar-collapse" id="main-navbar">
+          <div className={open.b} id="main-navbar">
             <ul className="navbar-nav ml-auto">
               <li className="nav-item">
                 <Link to="/" className="nav-link">

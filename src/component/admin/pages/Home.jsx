@@ -2,7 +2,9 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Sugar } from "react-preloaders";
 import { FiUsers, FiTrendingUp, FiTruck } from "react-icons/fi";
+import { checkSession } from "../utility/session";
 const AdminHome = () => {
+  checkSession();
   const [users, setUser] = useState(0);
   const [investment, setInvestments] = useState(0);
   const [loading, isLoading] = useState(true);

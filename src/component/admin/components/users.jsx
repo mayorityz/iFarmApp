@@ -12,8 +12,10 @@ import {
   FiUserX,
 } from "react-icons/fi";
 import axios from "axios";
+import { checkSession } from "../utility/session";
 
 const AdminUsers = () => {
+  checkSession()
   const url = `${utility.production.server}/allusers`;
   const removeUserUrl = `${utility.production.server}/user/delete`;
   const [loading, setLoading] = useState(true);

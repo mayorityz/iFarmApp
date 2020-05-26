@@ -6,8 +6,10 @@ import * as moment from "moment";
 import commafy from "commafy";
 
 import { FiUser, FiUsers, FiSmartphone, FiMail } from "react-icons/fi";
+import { checkSession } from "../utility/session";
 
 const AdminInvestments = () => {
+  checkSession();
   let { path } = useRouteMatch();
   const url = "https://ifarms-app.herokuapp.com/fetchallinvestment";
   const [inv, setInv] = useState([]);

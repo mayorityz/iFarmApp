@@ -4,7 +4,7 @@ import axios from "axios";
 import { Sugar } from "react-preloaders";
 import InvestmentDetails from "./InvestmentDetails.jsx";
 import * as Time from "moment";
-import * as utility from "../../utility.json"
+import * as utility from "../../utility.json";
 
 const Investment = ({ user }) => {
   const url = `${utility.production.server}/myinvestments/${user.id}`;
@@ -24,12 +24,12 @@ const Investment = ({ user }) => {
   const convert = (timeString) =>
     Time(timeString).format("DD-MM-YY : h:mm:ss a");
 
-  const showDetails =(id)=>{
-    let investment = data.filter(d=>{
+  const showDetails = (id) => {
+    let investment = data.filter((d) => {
       return d._id === id;
-    })
-      showDets(investment);
-  }
+    });
+    showDets(investment);
+  };
   return (
     <>
       <Sugar customLoading={isLoading} />
@@ -49,11 +49,17 @@ const Investment = ({ user }) => {
         <div className="container">
           <div className="row">
             <div className="col-md-4">
-              {
-                details.length === 0 ? (<><img src="../images/dashboard/new_product.png" alt="" />
-              <hr /></>) : (<InvestmentDetails details={details} />)
-              }
-              
+              {details.length === 0 ? (
+                <>
+                  <h4>
+                    Click "More Details" To See Your Investment Schedule Details
+                  </h4>
+                  <img src="../images/dashboard/new_product.png" alt="" />
+                  <hr />
+                </>
+              ) : (
+                <InvestmentDetails details={details} />
+              )}
             </div>
             <div className="col-md-8">
               <div className="card">
@@ -88,7 +94,12 @@ const Investment = ({ user }) => {
                             <td>{convert(d.dueDate)}</td>
                             <td>{d.duration} months</td>
                             <td>
-                              <button onClick={()=>{showDetails(d._id)}} className="btn btn-primary btn-xs">
+                              <button
+                                onClick={() => {
+                                  showDetails(d._id);
+                                }}
+                                className="btn btn-primary btn-xs"
+                              >
                                 More Details
                               </button>
                             </td>

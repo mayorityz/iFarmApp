@@ -5,9 +5,11 @@ import { Sugar } from "react-preloaders";
 import axios from "axios";
 import * as moment from "moment";
 import commafy from "commafy";
-import * as utility from "../../../utility.json"
+import * as utility from "../../../utility.json";
+import { checkSession } from "../utility/session";
 
 const AdminProducts = () => {
+  checkSession();
   const url = `${utility.production.server}/allproducts`;
   const deleteUrl = `${utility.production.server}/products/deleteitem`;
   const [loading, isLoaded] = useState(true);
@@ -62,41 +64,49 @@ const AdminProducts = () => {
         There are {products.length} active products in-store.
       </div>
       <div className="container">
-        <form action="">
-          <label htmlFor="">Product Title</label>
-          <input
-            type="text"
-            className="form-control"
-            placeholder="Search For A Product ..."
-            onChange={filterSearch}
-          />
-        </form>
-        <hr />
-        <div className="row">
-          {products.map((product, i) => (
-            <div className="col-md-4" key={product._id}>
-              <div className="admin_products">
-                <FiXOctagon
-                  className="delete_icon_prod"
-                  onClick={() => {
-                    removeItem(product._id);
-                  }}
-                />
-                <img src={product.imgUrls[0]} alt="" />
-                <h6>
-                  <Link to={product._id}>
-                    {product.title} - Uploaded{" "}
-                    {moment(product.uploaded, "YYYYMMDD").fromNow()}
-                  </Link>
-                </h6>
-                <p style={{ fontWeight: "bold" }}>
-                  N{commafy(product.price)} / {product.quantity}{" "}
-                  {product.measurement}
-                </p>
-              </div>
+        {products.length === 0 ? (
+          <div style={{ display: "flex", justifyContent: "center" }}>
+            <img src="../images/v.png" alt="img" />
+          </div>
+        ) : (
+          <>
+            <form action="">
+              <label htmlFor="">Product Title</label>
+              <input
+                type="text"
+                className="form-control"
+                placeholder="Search For A Product ..."
+                onChange={filterSearch}
+              />
+            </form>
+            <hr />
+            <div className="row">
+              {products.map((product, i) => (
+                <div className="col-md-4" key={product._id}>
+                  <div className="admin_products">
+                    <FiXOctagon
+                      className="delete_icon_prod"
+                      onClick={() => {
+                        removeItem(product._id);
+                      }}
+                    />
+                    <img src={product.imgUrls[0]} alt="" />
+                    <h6>
+                      <Link to={product._id}>
+                        {product.title} - Uploaded{" "}
+                        {moment(product.uploaded, "YYYYMMDD").fromNow()}
+                      </Link>
+                    </h6>
+                    <p style={{ fontWeight: "bold" }}>
+                      N{commafy(product.price)} / {product.quantity}{" "}
+                      {product.measurement}
+                    </p>
+                  </div>
+                </div>
+              ))}
             </div>
-          ))}
-        </div>
+          </>
+        )}
       </div>
     </div>
   );

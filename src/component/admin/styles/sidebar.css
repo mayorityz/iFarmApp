@@ -2,9 +2,29 @@
     margin: 0px;
     padding: 0px;
     background-color: #212529;
-    width: 200px;
+    width: 0;
     position: fixed;
+    top: 0;
+    left: 0;
     height: 100%;
+    overflow-x: hidden;
+    z-index: 1;
+    transition: 0.5s;
+}
+
+#isOpen {
+    width: 250px;
+}
+
+.closeBtn {
+    color: red;
+    font-size: 25px;
+    padding: 5px;
+    cursor: pointer;
+}
+
+.closeBtn:hover {
+    color: black;
 }
 
 .sidebar_ ul {
@@ -21,6 +41,7 @@
     text-decoration: none;
     margin-bottom: 5px;
     position: relative;
+    transition: 0.3s;
 }
 
 .sidebar_ a:hover {
@@ -55,9 +76,19 @@
     border: 2px solid #000;
 }
 
+#openMenu {
+    position: fixed;
+    right: 0;
+    top: 0;
+    padding: 5px;
+    cursor: pointer;
+    z-index: 1;
+}
+
+
+
 .ui-section {
     margin: 0px;
-    margin-left: 200px;
     background-color: #f6f6f6;
     height: 1000px;
 }
@@ -141,4 +172,30 @@
 
 .admin_products p {
     margin: 0px 10px;
+}
+
+.centerContent {
+    height: 550px;
+    width: 100%;
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid lightgoldenrodyellow;
+    box-shadow: 0 0 8px -6px black;
+}
+
+.adminloginform {
+    width: 40%;
+    margin: auto;
+    margin-top: 150px
+}
+
+@media only screen and (max-width: 400px) {
+    .adminloginform {
+        width: 100%;
+        box-sizing: border-box;
+        margin-top: 80px;
+        padding: 20px;
+    }
 }

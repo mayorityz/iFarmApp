@@ -4,8 +4,10 @@ import { Sugar } from "react-preloaders";
 import * as TimeFormat from "moment";
 import axios from "axios";
 import commafy from "commafy";
+import { checkSession } from "../utility/session";
 
 const InvestmentDetails = () => {
+  checkSession();
   let { id } = useParams();
   const url = `https://ifarms-app.herokuapp.com/investment/${id}`;
   const [details, setDetails] = useState([]);

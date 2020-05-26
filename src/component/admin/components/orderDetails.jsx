@@ -1,6 +1,18 @@
-import React from "react";
-
+import React, { useState } from "react";
+import * as utility from "../../../utility.json";
+import axios from "axios";
+import { checkSession } from "../utility/session";
 const OrderDetails = ({ data }) => {
+  const [btnTitle, setBtnTitle] = useState("Mark Completed");
+  const completeOrder = async (id) => {
+    checkSession();
+    setBtnTitle("Please Wait!");
+    let request = await axios.put(
+      `${utility.production.server}/orders/completeorder`,
+      { id }
+    );
+    setBtnTitle(request.data);
+  };
   return (
     <>
       <div className="card" style={{ width: "18rem" }}>
@@ -44,8 +56,13 @@ const OrderDetails = ({ data }) => {
           </ul>
         </div>
 
-        <button className="btn btn-block btn-success btn-lg">
-          Mark As Completed
+        <button
+          className="btn btn-block btn-success btn-lg"
+          onClick={() => {
+            completeOrder(data[0]._id);
+          }}
+        >
+          {btnTitle}
         </button>
       </div>
     </>

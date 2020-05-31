@@ -4,5 +4,6 @@
     },
     "test": {
         "server": "http://localhost:8080"
-    }
+    },
+    "frontend": "https://ifarms-app.surge.sh"
 }

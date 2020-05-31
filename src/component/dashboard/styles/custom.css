@@ -83,3 +83,65 @@ table td {
 .icon-size {
 	font-size: 25px;
 }
+
+
+.mobile_nav ul {
+	display: none;
+}
+
+#toggle-btn {
+	display: none;
+}
+
+#navbar__ nav.navbar a.menu-btn {
+	padding: 6px !important;
+}
+
+@media only screen and (max-width: 400px) {
+	.mobile_nav {
+		height: 100%;
+		width: 100%;
+		background-color: #000;
+		position: fixed;
+		top: 0;
+		overflow-y: scroll;
+		z-index: 5;
+		padding-top: 80px;
+		transition: 0.5s;
+		display: none
+	}
+
+	.showMenu {
+		display: block;
+	}
+
+	.mobile_nav ul {
+		margin-left: -39px;
+		display: block
+	}
+
+	.mobile_nav ul li {
+		list-style: none;
+		margin-bottom: 1px;
+	}
+
+	.mobile_nav ul li a {
+		text-transform: uppercase;
+		background-color: #63233b;
+		display: block;
+		color: white;
+		text-decoration: none;
+		padding: 10px 10px;
+		font-size: 9px;
+		font-weight: bold;
+	}
+
+	.mobile_nav ul li a:hover {
+		background-color: greenyellow;
+		color: #000
+	}
+
+	#toggle-btn {
+		display: block;
+	}
+}

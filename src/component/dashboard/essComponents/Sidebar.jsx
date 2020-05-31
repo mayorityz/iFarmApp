@@ -1,12 +1,14 @@
 import React, { useState } from "react";
 import { MdShoppingCart } from "react-icons/md";
 import { Link } from "react-router-dom";
+import * as url from "../../../utility.json";
 
 const SideBar = () => {
   const logout = () => {
     localStorage.setItem("iFarmVendor", null);
     window.location = "../login";
   };
+
   return (
     <>
       <nav className="side-navbar">
@@ -34,15 +36,15 @@ const SideBar = () => {
             <h5 className="sidenav-heading">MENU</h5>
             <ul id="side-main-menu" className="side-menu list-unstyled">
               <li>
-                <Link to="./">
+                <a href={`${url.frontend}/dashboard`}>
                   <i className="fa fa-home"></i>Home
-                </Link>
+                </a>
               </li>
 
               <li>
-                <Link to="./marketplace">
+                <a href={`${url.frontend}/dashboard/marketplace`}>
                   <i className="fa fa-truck"></i>Market Place
-                </Link>
+                </a>
               </li>
               <SideBarLinks
                 title="Farming"
@@ -60,19 +62,19 @@ const SideBar = () => {
               />
 
               <li>
-                <Link to="./myaccount">
+                <a href={`${url.frontend}/dashboard/myaccount`}>
                   <i className="fa fa-user-circle-o"></i>My Account
-                </Link>
+                </a>
               </li>
               <li>
-                <Link to="./shopping-cart">
+                <a href={`${url.frontend}/dashboard/shopping-cart`}>
                   <MdShoppingCart /> Shopping Cart
-                </Link>
+                </a>
               </li>
               <li>
-                <Link to="./shopping-cart">
+                <a href={`${url.frontend}/dashboard/order-history`}>
                   <MdShoppingCart /> My Orders
-                </Link>
+                </a>
               </li>
               <li onClick={logout}>
                 <Link to="#logout">
@@ -119,7 +121,9 @@ function SideBarLinks(props) {
         <ul id={props.link} className={collapse}>
           {props.sublinks.map((link_, id) => (
             <li key={id}>
-              <Link to={link_.url}>{link_.title}</Link>
+              <a href={`${url.frontend}/dashboard/${link_.url}`}>
+                {link_.title}
+              </a>
             </li>
           ))}
         </ul>

@@ -24,6 +24,15 @@ const Navigation = () => {
     b: "navbar-collapse collapse",
   });
 
+  const closeMenu = () => {
+    setOpen({
+      status: true,
+      a: "navbar-toggler collapsed",
+      b: "navbar-collapse collapse",
+      expanded: "false",
+    });
+  };
+
   const toggleDropDown = () => {
     !open.status
       ? setOpen({
@@ -61,27 +70,27 @@ const Navigation = () => {
           <div className={open.b} id="main-navbar">
             <ul className="navbar-nav ml-auto">
               <li className="nav-item">
-                <Link to="/" className="nav-link">
+                <Link to="/" className="nav-link" onClick={closeMenu}>
                   Home
                 </Link>
               </li>
               <li className="nav-item">
-                <Link to="/contactus" className="nav-link">
+                <Link to="/contactus" className="nav-link" onClick={closeMenu}>
                   Contact Us
                 </Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" to="/services">
+                <Link className="nav-link" to="/services" onClick={closeMenu}>
                   Our Services
                 </Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" to="/faq">
+                <Link className="nav-link" to="/faq" onClick={closeMenu}>
                   Faqs
                 </Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" to="/blog">
+                <Link className="nav-link" to="/blog" onClick={closeMenu}>
                   Blog
                 </Link>
               </li>
@@ -89,6 +98,7 @@ const Navigation = () => {
                 <Link
                   className="nav-link flex-center bg-blue radius-5px transition-3"
                   to="login"
+                  onClick={closeMenu}
                 >
                   Login
                 </Link>

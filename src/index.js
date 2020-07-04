@@ -20,3 +20,5 @@ ReactDOM.render(
   </AlertProvider>,
   document.getElementById("root")
 );
+// 172.16.10.5
+// http://172.16.2.28:8080/momas-mdms/dashboard-technical.xhtml

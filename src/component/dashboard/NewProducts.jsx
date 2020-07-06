@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useAlert } from "react-alert";
+import { IoIosImages, IoIosCreate, IoMdSave } from "react-icons/io";
 import commafy from "commafy";
 import axios from "axios";
 import * as utility from "../../utility.json";
@@ -64,7 +65,9 @@ const NewProduct = ({ user }) => {
               <li className="breadcrumb-item">
                 <a href="/dashboard">Home</a>
               </li>
-              <li className="breadcrumb-item active">Upload New Product </li>
+              <li className="breadcrumb-item active">
+                <IoIosCreate /> Upload New Product{" "}
+              </li>
             </ul>
           </div>
         </div>
@@ -84,7 +87,9 @@ const NewProduct = ({ user }) => {
             <div className="col-md-6">
               <div className="card">
                 <div className="card-header d-flex align-items-center">
-                  <h4 className="header4">Upload A New Product</h4>
+                  <h4 className="header4">
+                    <IoIosCreate /> Upload A New Product
+                  </h4>
                 </div>
                 <div className="card-body">
                   <p>Your product will be added to our marketplace.</p>
@@ -144,7 +149,8 @@ const NewProduct = ({ user }) => {
                     </div>
                     <div className="form-group">
                       <label>
-                        Quantity*: e.g. N{commafy(quantity)}/{measurement} at N
+                        Quantity*: e.g. {commafy(quantity)}/{measurement} at
+                        &#8358;
                         {commafy(price)}
                       </label>
                       <input
@@ -166,7 +172,9 @@ const NewProduct = ({ user }) => {
                       ></textarea>
                     </div>
                     <div className="form-group">
-                      <label>Select Images:</label>
+                      <label>
+                        Select Images <IoIosImages />:
+                      </label>
                       <div className="custom-file">
                         <input
                           type="file"
@@ -178,7 +186,7 @@ const NewProduct = ({ user }) => {
                           }}
                         />
                         <label class="custom-file-label" forHtml="customFile">
-                          Choose Product Images Here.
+                          <IoIosImages /> Choose Product Images Here.
                         </label>
                       </div>
                     </div>
@@ -189,7 +197,7 @@ const NewProduct = ({ user }) => {
                     )} */}
                     <div className="form-group">
                       <button className="btn btn-primary" disabled={btn}>
-                        Upload Product
+                        <IoMdSave /> Upload Product
                       </button>
                     </div>
                   </form>

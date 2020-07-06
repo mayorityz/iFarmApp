@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useAlert } from "react-alert";
+import commafy from "commafy";
 import axios from "axios";
 import * as utility from "../../utility.json";
 
@@ -11,7 +12,7 @@ const NewProduct = ({ user }) => {
   const [category, setCategory] = useState("");
   const [price, setPrice] = useState("");
   const [measurement, setMeasurement] = useState("");
-  const [quantity, setQuantity] = useState("");
+  const [quantity, setQuantity] = useState(1);
   const [desc, setDesc] = useState("");
   const [files, setFile] = useState("");
   const [btn, setBtn] = useState(false);
@@ -130,7 +131,7 @@ const NewProduct = ({ user }) => {
                       <select
                         name=""
                         id=""
-                        className="form-control"
+                        className="custom-select"
                         required
                         onChange={({ target }) => setMeasurement(target.value)}
                         value={measurement}
@@ -142,7 +143,10 @@ const NewProduct = ({ user }) => {
                       </select>
                     </div>
                     <div className="form-group">
-                      <label>Quantity By KG: e.g. N400/Kg</label>
+                      <label>
+                        Quantity*: e.g. N{commafy(quantity)}/{measurement} at N
+                        {commafy(price)}
+                      </label>
                       <input
                         type="number"
                         placeholder="Quantity Per Price ..."
@@ -163,15 +167,20 @@ const NewProduct = ({ user }) => {
                     </div>
                     <div className="form-group">
                       <label>Select Images:</label>
-                      <input
-                        type="file"
-                        className="form-control-file"
-                        name=""
-                        multiple
-                        onChange={({ target }) => {
-                          setFile(target.files);
-                        }}
-                      />
+                      <div className="custom-file">
+                        <input
+                          type="file"
+                          className="custom-file-input"
+                          name=""
+                          multiple
+                          onChange={({ target }) => {
+                            setFile(target.files);
+                          }}
+                        />
+                        <label class="custom-file-label" forHtml="customFile">
+                          Choose Product Images Here.
+                        </label>
+                      </div>
                     </div>
                     {/* {!msg ? (
                       ""

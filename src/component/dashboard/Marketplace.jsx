@@ -10,6 +10,7 @@ import Market from "./Market";
 
 import jsonwebtoken from "jsonwebtoken";
 import Cart from "./Cart";
+import NotFound from "./NotFound";
 
 let userToken = localStorage.getItem("iFarmVendor");
 
@@ -54,7 +55,7 @@ const MarketPlace = () => {
       page_ = <Cart user={access} />;
       break;
     default:
-      page_ = "<h3>page not found</h3>";
+      page_ = <NotFound user={access} />;
       break;
   }
 

@@ -5,7 +5,7 @@ import { MdShoppingCart, MdInfo } from "react-icons/md";
 import Modal from "react-modal";
 import axios from "axios";
 import commafy from "commafy";
-import * as utility from "../../utility.json"
+import * as utility from "../../utility.json";
 
 const Market = ({ user }) => {
   const alert = useAlert();
@@ -96,7 +96,7 @@ const Market = ({ user }) => {
           <div className="container-fluid">
             <ul className="breadcrumb">
               <li className="breadcrumb-item">
-                <a href="index-2.html">Home</a>
+                <a href="0#">Home</a>
               </li>
               <li className="breadcrumb-item active">MarketPlace </li>
             </ul>
@@ -107,7 +107,16 @@ const Market = ({ user }) => {
         <div className="container">
           <div className="row">
             {products.length === 0 ? (
-              <h4>There are no products at the moment</h4>
+              <div>
+                <h4 style={{ textAlign: "center" }}>
+                  Our MarketPlace is empty today! Be the first to sell on
+                  i-farms.com
+                </h4>
+                <hr />
+                <div style={{ display: "flex", justifyContent: "center" }}>
+                  <img src="../images/v.png" alt="img" />
+                </div>
+              </div>
             ) : (
               products.map((product, i) => (
                 <div className="col-md-4" key={i}>
@@ -119,7 +128,7 @@ const Market = ({ user }) => {
                     />
                     <div className="card-body">
                       <h6 className="card-title">
-                        {product.title} - N{commafy(product.price)} /{" "}
+                        {product.title} - &#8358;{commafy(product.price)} /{" "}
                         {product.quantity}
                         {product.measurement}
                       </h6>
@@ -170,7 +179,7 @@ const Market = ({ user }) => {
                 <hr />
                 <h6>Price/Rate</h6>
                 <p>
-                  N{commafy(modalState.price)} / {modalState.quantity}
+                  &#8358;{commafy(modalState.price)} / {modalState.quantity}
                   {modalState.measurement}
                 </p>
                 <hr />
@@ -191,6 +200,7 @@ const Market = ({ user }) => {
                       height: "50px",
                       margin: "10px",
                       cursor: "pointer",
+                      border: "2px solid #a5b1a7",
                     }}
                     alt=""
                   />
@@ -199,7 +209,9 @@ const Market = ({ user }) => {
             </div>
           )}
         </div>
-        <button onClick={closeModal}>close</button>
+        <button onClick={closeModal} className="btn btn-danger">
+          close
+        </button>
       </Modal>
     </>
   );

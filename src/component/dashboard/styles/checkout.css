@@ -1,0 +1,15 @@
+.deleteItem {
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+}
+
+.deleteItem:hover {
+    color: red;
+}
+
+.table-icon {
+    width: 25px;
+    height: 25px;
+    color: red;
+}

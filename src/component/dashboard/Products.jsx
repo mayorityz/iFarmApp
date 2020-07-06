@@ -5,7 +5,7 @@ import { Sugar } from "react-preloaders";
 import * as Time from "moment";
 import commafy from "commafy";
 import EditProduct from "./EditProduct";
-import * as utility from "../../utility.json"
+import * as utility from "../../utility.json";
 
 const Products = ({ user }) => {
   const [modalState, setModalState] = useState([]);
@@ -70,7 +70,7 @@ const Products = ({ user }) => {
       .post(deleteUrl, { id })
       .then((res) => {
         console.log(res);
-        enableEdit([])
+        enableEdit([]);
       })
       .catch((err) => {
         console.log(err);
@@ -99,17 +99,14 @@ const Products = ({ user }) => {
             <div className="col-md-8">
               <div className="card">
                 <div className="card-header d-flex align-items-center">
-                  <h4>My Products.</h4>
+                  <h4>
+                    My Products {data ? <span>({data.length})</span> : ""}.
+                  </h4>
                 </div>
                 <div className="card-body">
-                  {data ? (
-                    <h6>You have {data.length} item(s) in the Market Place</h6>
-                  ) : (
-                    ""
-                  )}
                   {!data ? (
                     <div>Fetching Data ...</div>
-                  ) : (
+                  ) : data.length ? (
                     <table className="table table-hover table-striped table-bordered">
                       <thead className="thead-light">
                         <tr>
@@ -172,6 +169,8 @@ const Products = ({ user }) => {
                         ))}
                       </tbody>
                     </table>
+                  ) : (
+                    <p>You don't have any product registered on i-farms.com</p>
                   )}
                 </div>
               </div>

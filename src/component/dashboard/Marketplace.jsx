@@ -7,10 +7,10 @@ import Investment from "./Investments";
 import NewInvestment from "./NewInvestment";
 import Products from "./Products";
 import Market from "./Market";
-
 import jsonwebtoken from "jsonwebtoken";
 import Cart from "./Cart";
 import NotFound from "./NotFound";
+import Index from "./Index";
 
 let userToken = localStorage.getItem("iFarmVendor");
 
@@ -50,6 +50,9 @@ const MarketPlace = () => {
       break;
     case "shopping-cart":
       page_ = <Cart user={access} />;
+      break;
+    case "index":
+      page_ = <Index user={access} />;
       break;
     case "orders":
       page_ = <Cart user={access} />;

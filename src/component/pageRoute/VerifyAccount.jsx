@@ -25,6 +25,7 @@ const VerifyAccount = () => {
         if (response.data === "ok!") {
           setMsg("Your Account Has Been Verified!!!");
           Loaded(false);
+          window.location = "login";
         } else setMsg(response.data);
       } catch (error) {
         console.log(error);

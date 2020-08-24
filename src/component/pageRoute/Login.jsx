@@ -18,7 +18,7 @@ const Login = () => {
         if (success) {
           setMsg("Successful Login");
           window.localStorage.setItem("iFarmVendor", message);
-          window.location = "../dashboard";
+          window.location = "../dashboard/index";
         } else {
           setMsg(message);
         }
@@ -41,11 +41,7 @@ const Login = () => {
           </div>
           <div className="col-md-6">
             <h1>Log in Now</h1>
-            <p className="mb-50px">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam,
-            </p>
+            <p className="mb-50px">Welcome Home</p>
             <form id="log-in" className="mt-30px mb-20px" onSubmit={loginForm}>
               <div className="form-group p-relative">
                 <input

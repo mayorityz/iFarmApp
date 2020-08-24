@@ -13,6 +13,7 @@ const NewAccount = () => {
   const [msg, setMsg] = useState("");
   let submitForm = (e) => {
     e.preventDefault();
+    setMsg("please wait!!!");
     setBtnAction(true);
     if (pass1 !== pass2) {
       setBtnAction(false);

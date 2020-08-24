@@ -10,8 +10,12 @@ const OurServices = () => {
         <div className="container">
           <h1 className="title-h">Our Products and Services</h1>
           <p className="title-p">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            Garri, Yam, Cassava, Rice, Beans, Eggs, Chicken, Fruits - Banana,
+            Orange, Plantain, Palm Oil, Vegetables, Pepper, Tomatoes, etc.
+          </p>
+          <p>
+            We deal in all food items that can be sourced directly from farm. We
+            present these products to you organically, cleaned and packaged
           </p>
           <div className="row">
             <div className="col-md-4">
@@ -21,14 +25,13 @@ const OurServices = () => {
               >
                 <i className="im im-umbrella p-absolute color-blue fs-35 bg-gray text-center radius-50 mb-25px transition-2"></i>
                 <div className="pl-">
-                  <h4 className="mb-5px">Safe Investments</h4>
+                  <h4 className="mb-5px">Select Product</h4>
                   <span className="color-blue bg-gray pl-15px pr-15px pt-5px pb-5px radius-50px fw-400 fs-14">
                     Provide High Quality
                   </span>
                   <p className="mt-15px">
-                    You don't need to own a physical farm, but by investing in
-                    one on iFarm, you can monitor the progress made on your farm
-                    via your dashboard.
+                    After creating your account, select the product you want to
+                    buy or sell.
                   </p>
                 </div>
               </div>
@@ -89,8 +92,8 @@ const OurServices = () => {
                 </span>
                 <h4>Select Product</h4>
                 <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                  do eiusmod tempor incididunt ut labore.
+                  After creating your account, select the product you want to
+                  buy or sell.
                 </p>
               </div>
             </div>
@@ -101,8 +104,8 @@ const OurServices = () => {
                 </span>
                 <h4>Buy Safely</h4>
                 <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                  do eiusmod tempor incididunt ut labore
+                  Add the product to cart and make payment. Fill out all prompts
+                  so we know your location and quantity you want to buy
                 </p>
               </div>
             </div>
@@ -113,8 +116,9 @@ const OurServices = () => {
                 </span>
                 <h4>Receive Delivery</h4>
                 <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                  do eiusmod tempor incididunt ut labore
+                  Ensure someone is at home to receive your product. We also
+                  offer contactless delivery, if your order specifies, we can
+                  leave your package at your doorstep
                 </p>
               </div>
             </div>

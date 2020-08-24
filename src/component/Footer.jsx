@@ -14,9 +14,9 @@ const Footer = () => {
                   alt="img"
                 />
                 <p className="mb-20px">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                  Ut enim ad minim veniam,
+                  We ensure that you eat healthy by facilitating organic food
+                  delivery. We keep farmers working by making their efforts
+                  profitable.
                 </p>
                 <a className="main-btn btn-3" href="#0">
                   Get Started
@@ -126,9 +126,7 @@ const Footer = () => {
             <div className="col-lg-3 col-sm-6">
               <div className="mt-25px mb-25px">
                 <h4 className="mb-20px">Contact Info</h4>
-                <p className="mb-20px">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit
-                </p>
+                <p className="mb-20px">You can reach us at:</p>
                 <h6>
                   <i className="fa fa-map-marker mr-5px fs-15 color-blue bg-gray radius-50 address text-center"></i>
                   52, Hillview Estate, Life Camp, Abuja.

@@ -52,7 +52,7 @@ const AdminNav = () => {
       <div className={mobileMenu}>
         <ul>
           <li>
-            <a href={`${url.frontend}/dashboard`}>
+            <a href={`${url.frontend}/dashboard/index`}>
               <FiHome /> Dashboard
             </a>
           </li>

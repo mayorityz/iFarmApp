@@ -37,6 +37,7 @@ const NewAccount = () => {
         } else {
           setBtnAction(false);
           errors.map((error) => {
+            console.log(error);
             setMsg(error.msg);
             // display the errors
             return true;
@@ -45,7 +46,7 @@ const NewAccount = () => {
       })
       .catch((err) => {
         setBtnAction(false);
-        alert(err);
+        console.log(err);
       });
   };
   return (

@@ -26,7 +26,7 @@ const Dashboard = ({ user }) => {
       setLoading(true);
     };
     res();
-  });
+  }, [id, url]);
 
   return (
     <>

@@ -1,17 +1,19 @@
 import React, { useState, useEffect } from "react";
 import { Sugar } from "react-preloaders";
-import { useAlert } from "react-alert";
-import { MdShoppingCart, MdInfo } from "react-icons/md";
+// import { useAlert } from "react-alert";
+// import { MdShoppingCart, MdInfo } from "react-icons/md";
 import Modal from "react-modal";
 import axios from "axios";
 import commafy from "commafy";
 import * as utility from "../../utility.json";
+import Product from "./components/Product";
 
 const Market = ({ user }) => {
-  const alert = useAlert();
+  // const alert = useAlert();
   const [modalState, setModalState] = useState([]);
   const [loading, setLoading] = useState(true);
   const [products, setProducts] = useState([]);
+
   const customStyles = {
     content: {
       width: "50%",
@@ -38,39 +40,39 @@ const Market = ({ user }) => {
       });
   }, [url]);
 
-  const addToCart = (id) => {
-    let localStorage = window.localStorage;
-    let itemsArr = [];
-    let item = products.filter((product) => {
-      return product._id === id;
-    });
+  // const addToCart = (id) => {
+  //   let localStorage = window.localStorage;
+  //   let itemsArr = [];
+  //   let item = products.filter((product) => {
+  //     return product._id === id;
+  //   });
 
-    const cartItem = {
-      _id: id,
-      title: item[0].title,
-      price: item[0].price,
-      qty: 1,
-      total: item[0].price,
-    };
+  //   const cartItem = {
+  //     _id: id,
+  //     title: item[0].title,
+  //     price: item[0].price,
+  //     qty: 1,
+  //     total: item[0].price,
+  //   };
 
-    itemsArr.push(cartItem);
+  //   itemsArr.push(cartItem);
 
-    if (localStorage.getItem("ifarms-cart") === null) {
-      localStorage.setItem("ifarms-cart", JSON.stringify(itemsArr));
-    } else {
-      const existingRecord = JSON.parse(localStorage.getItem("ifarms-cart"));
+  //   if (localStorage.getItem("ifarms-cart") === null) {
+  //     localStorage.setItem("ifarms-cart", JSON.stringify(itemsArr));
+  //   } else {
+  //     const existingRecord = JSON.parse(localStorage.getItem("ifarms-cart"));
 
-      let result = existingRecord.find((p_id) => p_id._id === cartItem._id);
+  //     let result = existingRecord.find((p_id) => p_id._id === cartItem._id);
 
-      if (result === undefined) {
-        existingRecord.push(cartItem);
-        localStorage.setItem("ifarms-cart", JSON.stringify(existingRecord));
-        alert.show("Done");
-      } else {
-        alert.show("Item Exists in Your Cart");
-      }
-    }
-  };
+  //     if (result === undefined) {
+  //       existingRecord.push(cartItem);
+  //       localStorage.setItem("ifarms-cart", JSON.stringify(existingRecord));
+  //       alert.show("Done");
+  //     } else {
+  //       alert.show("Item Exists in Your Cart");
+  //     }
+  //   }
+  // };
 
   var subtitle;
   const [modalIsOpen, setIsOpen] = useState(false);
@@ -119,41 +121,47 @@ const Market = ({ user }) => {
               </div>
             ) : (
               products.map((product, i) => (
-                <div className="col-md-4" key={i}>
-                  <div className="card">
-                    <img
-                      src={product.imgUrls[0]}
-                      className="card-img-top"
-                      alt="..."
-                    />
-                    <div className="card-body">
-                      <h6 className="card-title">
-                        {product.title} - &#8358;{commafy(product.price)} /{" "}
-                        {product.quantity}
-                        {product.measurement}
-                      </h6>
-                      <p className="card-text"></p>
-                      <button
-                        onClick={() => {
-                          openModal(product);
-                        }}
-                        className="btn btn-primary"
-                      >
-                        <MdInfo />
-                        View Details
-                      </button>{" "}
-                      <button
-                        className="btn btn-warning"
-                        onClick={() => {
-                          addToCart(product._id);
-                        }}
-                      >
-                        <MdShoppingCart />
-                        Add To Cart
-                      </button>
-                    </div>
-                  </div>
-                </div>
+                <Product
+                  key={i}
+                  product={product}
+                  products={products}
+                  openModal={openModal}
+                />
+                // <div className="col-md-4" key={i}>
+                //   <div className="card">
+                //     <img
+                //       src={product.imgUrls[0]}
+                //       className="card-img-top"
+                //       alt="..."
+                //     />
+                //     <div className="card-body">
+                //       <h6 className="card-title">
+                //         {product.title} - &#8358;{commafy(product.price)} /{" "}
+                //         {product.quantity}
+                //         {product.measurement}
+                //       </h6>
+                //       <p className="card-text"></p>
+                //       <button
+                //         onClick={() => {
+                //           openModal(product);
+                //         }}
+                //         className="btn btn-primary"
+                //       >
+                //         <MdInfo />
+                //         View Details
+                //       </button>{" "}
+                //       <button
+                //         className="btn btn-warning"
+                //         onClick={() => {
+                //           addToCart(product._id);
+                //         }}
+                //       >
+                //         <MdShoppingCart />
+                //         Add To Cart
+                //       </button>
+                //     </div>
+                //   </div>
+                // </div>
               ))
             )}
           </div>

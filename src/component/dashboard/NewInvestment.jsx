@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import commafy from "commafy";
 import axios from "axios";
-import * as utility from "../../utility.json"
+import * as utility from "../../utility.json";
 /**
  * rates - 2% for btw 100k n 1m
  * ------- 3% above 1m

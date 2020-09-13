@@ -6,5 +6,9 @@
         "server": "http://localhost:8080"
     },
     "frontend": "http://i-farms.com",
-    "save": "https://ifarms-app.herokuapp.com"
+    "save": "https://ifarms-app.herokuapp.com",
+    "servers": {
+        "live": "https://ifarms-app.herokuapp.com",
+        "local": "http://localhost:8080"
+    }
 }

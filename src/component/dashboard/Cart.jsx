@@ -6,6 +6,7 @@ import commafy from "commafy";
 import axios from "axios";
 import * as utility from "../../utility.json";
 import "./styles/checkout.css";
+
 const getTotal = (x) => {
   if (!x) return [];
   let t = 0;
@@ -19,6 +20,7 @@ const Cart = ({ user }) => {
   let url = window.location.search;
   let storageItems = storage.getItem("ifarms-cart");
   const [items, setItems] = useState([]);
+  const [notification, setNotif] = useState("");
   const [totalPrice, setTotalPrice] = useState(
     getTotal(JSON.parse(storageItems))
   );
@@ -48,6 +50,7 @@ const Cart = ({ user }) => {
 
   const checkout = () => {
     // we have to clean the localDB.
+    setNotif("go!");
     axios
       .post(`${utility.production.server}/products/checkout`, {
         userId: user.id,
@@ -160,6 +163,11 @@ const Cart = ({ user }) => {
                         Total : &#8358;{commafy(totalPrice)}.
                       </h1>
                       <hr />
+                      {notification ? (
+                        <div className="alert alert-primary text-center">
+                          Loading Payment!
+                        </div>
+                      ) : null}
                       <button
                         className="btn btn-warning btn-lg btn-block"
                         onClick={checkout}

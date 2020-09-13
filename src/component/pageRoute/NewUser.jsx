@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import * as UTILITY from "../../utility.json";
 import axios from "axios";
 
 const NewAccount = () => {
-  const url = "https://ifarms-app.herokuapp.com/newuser";
+  const url = `${UTILITY.servers.local}/newuser`;
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");

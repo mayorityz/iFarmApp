@@ -11,6 +11,7 @@ import jsonwebtoken from "jsonwebtoken";
 import Cart from "./Cart";
 import NotFound from "./NotFound";
 import Index from "./Index";
+import Orders from "./Orders";
 
 let userToken = localStorage.getItem("iFarmVendor");
 
@@ -54,8 +55,8 @@ const MarketPlace = () => {
     case "index":
       page_ = <Index user={access} />;
       break;
-    case "orders":
-      page_ = <Cart user={access} />;
+    case "order-history":
+      page_ = <Orders user={access} />;
       break;
     default:
       page_ = <NotFound user={access} />;

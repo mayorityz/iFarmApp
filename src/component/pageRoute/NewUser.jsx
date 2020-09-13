@@ -4,7 +4,7 @@ import * as UTILITY from "../../utility.json";
 import axios from "axios";
 
 const NewAccount = () => {
-  const url = `${UTILITY.servers.local}/newuser`;
+  const url = `${UTILITY.servers.live}/newuser`;
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");

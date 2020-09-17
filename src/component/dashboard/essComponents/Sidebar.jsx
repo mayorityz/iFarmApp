@@ -36,11 +36,10 @@ const SideBar = () => {
             <h5 className="sidenav-heading">MENU</h5>
             <ul id="side-main-menu" className="side-menu list-unstyled">
               <li>
-                <a href={`${url.frontend}/dashboard`}>
+                <a href={`${url.frontend}/dashboard/index`}>
                   <i className="fa fa-home"></i>Home
                 </a>
               </li>
-
               <li>
                 <a href={`${url.frontend}/dashboard/marketplace`}>
                   <i className="fa fa-truck"></i>Market Place

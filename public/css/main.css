@@ -1228,7 +1228,7 @@ p.p-big {
 					04-navbar
 ----------------------------------------------------*/
 .navbar {
-	position: fixed;
+	/* position: fixed; */
 	top: 0;
 	width: 100%;
 	z-index: 999;
@@ -3226,3 +3226,8 @@ p.p-big {
 /*----------------------------------------------------
 					End welcome-404
 ----------------------------------------------------*/
+
+.header-img {
+	border-radius: 8px;
+	filter: drop-shadow(2px 4px 6px black);
+}

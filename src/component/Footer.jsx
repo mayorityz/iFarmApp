@@ -1,149 +1,41 @@
 import React from "react";
-
+import { Link } from "react-router-dom";
+const footerStyle = {
+  paddingTop: 10,
+  paddingBottom: 10,
+  backgroundColor: "#f6f6f6",
+};
 const Footer = () => {
   return (
     <>
-      <section className="footer-area sec-padding">
+      <section className="footer-area sec-padding" style={footerStyle}>
         <div className="container">
-          <div className="row">
-            <div className="col-lg-3 col-sm-6">
+          <div className="row justify-content-md-center">
+            <div className="col-md-6">
               <div className="mt-25px mb-25px">
-                <img
-                  src="images/ifarm_90_30.png"
-                  className="mb-20px"
-                  alt="img"
-                />
-                <p className="mb-20px">
-                  We ensure that you eat healthy by facilitating organic food
-                  delivery. We keep farmers working by making their efforts
-                  profitable.
-                </p>
-                <a className="main-btn btn-3" href="#0">
-                  Get Started
-                </a>
-              </div>
-            </div>
-            <div className="col-lg-3 col-sm-6">
-              <div className="mt-25px mb-25px links">
-                <h4 className="mb-20px">Useful Links</h4>
-                <h6 className="mb-10px">
-                  <i className="fa fa-angle-right"></i>{" "}
-                  <a
-                    href="#0"
-                    className="color-333 color-blue-hvr transition-3"
-                  >
-                    Home
-                  </a>
-                </h6>
-                <h6 className="mb-10px">
-                  <i className="fa fa-angle-right"></i>{" "}
-                  <a
-                    href="#0"
-                    className="color-333 color-blue-hvr transition-3"
-                  >
-                    Features
-                  </a>
-                </h6>
-                <h6 className="mb-10px">
-                  <i className="fa fa-angle-right"></i>{" "}
-                  <a
-                    href="#0"
-                    className="color-333 color-blue-hvr transition-3"
-                  >
-                    About
-                  </a>
-                </h6>
-                <h6 className="mb-10px">
-                  <i className="fa fa-angle-right"></i>{" "}
-                  <a
-                    href="#0"
-                    className="color-333 color-blue-hvr transition-3"
-                  >
-                    Services
-                  </a>
-                </h6>
-                <h6 className="mb-10px">
-                  <i className="fa fa-angle-right"></i>{" "}
-                  <a
-                    href="#0"
-                    className="color-333 color-blue-hvr transition-3"
-                  >
-                    Blog
-                  </a>
-                </h6>
-              </div>
-            </div>
-            <div className="col-lg-3 col-sm-6">
-              <div className="mt-25px mb-25px links">
-                <h4 className="mb-20px">Company</h4>
-                <h6 className="mb-10px">
-                  <i className="fa fa-angle-right"></i>{" "}
-                  <a
-                    href="#0"
-                    className="color-333 color-blue-hvr transition-3"
-                  >
-                    Career
-                  </a>
-                </h6>
-                <h6 className="mb-10px">
-                  <i className="fa fa-angle-right"></i>{" "}
-                  <a
-                    href="#0"
-                    className="color-333 color-blue-hvr transition-3"
-                  >
-                    Leadership
-                  </a>
-                </h6>
-                <h6 className="mb-10px">
-                  <i className="fa fa-angle-right"></i>{" "}
-                  <a
-                    href="#0"
-                    className="color-333 color-blue-hvr transition-3"
-                  >
-                    Strategy
-                  </a>
-                </h6>
-                <h6 className="mb-10px">
-                  <i className="fa fa-angle-right"></i>{" "}
-                  <a
-                    href="#0"
-                    className="color-333 color-blue-hvr transition-3"
-                  >
-                    Services
-                  </a>
-                </h6>
-                <h6 className="mb-10px">
-                  <i className="fa fa-angle-right"></i>{" "}
-                  <a
-                    href="#0"
-                    className="color-333 color-blue-hvr transition-3"
-                  >
-                    Blog
-                  </a>
-                </h6>
-              </div>
-            </div>
-            <div className="col-lg-3 col-sm-6">
-              <div className="mt-25px mb-25px">
-                <h4 className="mb-20px">Contact Info</h4>
-                <p className="mb-20px">You can reach us at:</p>
-                <h6>
+                <h4 className="mb-20px text-center">Contact Us</h4>
+                <p className="mb-20px text-center">You can reach us at:</p>
+                <h6 className=" text-center">
                   <i className="fa fa-map-marker mr-5px fs-15 color-blue bg-gray radius-50 address text-center"></i>
                   52, Hillview Estate, Life Camp, Abuja.
                 </h6>
-                <h6>
+                <h6 className=" text-center">
                   <i className="fa fa-map-marker mr-5px fs-15 color-blue bg-gray radius-50 address text-center"></i>
-                  2222 Canterbury Park Drive, Grand Praire TX 75050, USA.
+                  46, Autumn Ln, Burlington, NJ
                 </h6>
-                <h6>
+                <h6 className=" text-center">
                   <i className="fa fa-phone mr-5px fs-15 color-blue bg-gray radius-50 address text-center"></i>{" "}
-                  +817-443-2647
+                  +1281-640-6485
                 </h6>
-                <h6 className="mb-30px">
+                <h6 className="mb-10px text-center">
                   <i className="fa fa-envelope mr-5px fs-15 color-blue bg-gray radius-50 address text-center"></i>
                   jmmisadev@gmail.com
                 </h6>
-                <a
+                <h6 className="mb-30px text-center">
+                  <i className="fa fa-envelope mr-5px fs-15 color-blue bg-gray radius-50 address text-center"></i>
+                  info@jmmisa.com
+                </h6>
+                {/* <a
                   href="#0"
                   className="social color-blue color-fff-hvr bg-orange-hvr bg-gray text-center radius-50 fs-15 d-inline-block"
                 >
@@ -160,7 +52,7 @@ const Footer = () => {
                   className="social color-blue color-fff-hvr bg-orange-hvr bg-gray text-center radius-50 fs-15 d-inline-block"
                 >
                   <i className="fa fa-linkedin"></i>
-                </a>
+                </a> */}
               </div>
             </div>
           </div>
@@ -168,7 +60,7 @@ const Footer = () => {
       </section>
       <section className="bg-gray sm-padding text-center">
         <div className="container">
-          <h6 className="mb-0px">© 2020 Designed by tha24webguy</h6>
+          <h6 className="mb-0px">© 2021. All Rights Reserved.</h6>
         </div>
       </section>
     </>

@@ -75,23 +75,13 @@ const Navigation = () => {
                 </Link>
               </li>
               <li className="nav-item">
+                <Link to="/aboutus" className="nav-link" onClick={closeMenu}>
+                  About Us
+                </Link>
+              </li>
+              <li className="nav-item">
                 <Link to="/contactus" className="nav-link" onClick={closeMenu}>
                   Contact Us
-                </Link>
-              </li>
-              <li className="nav-item">
-                <Link className="nav-link" to="/services" onClick={closeMenu}>
-                  Our Services
-                </Link>
-              </li>
-              <li className="nav-item">
-                <Link className="nav-link" to="/faq" onClick={closeMenu}>
-                  Faqs
-                </Link>
-              </li>
-              <li className="nav-item">
-                <Link className="nav-link" to="/blog" onClick={closeMenu}>
-                  Blog
                 </Link>
               </li>
               <li className="nav-item log-in">

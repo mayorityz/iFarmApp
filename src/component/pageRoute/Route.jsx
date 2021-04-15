@@ -6,6 +6,7 @@ import ContactUs from "./ContactUs";
 import PageNotFound from "./NotFound";
 import LostPassword from "./ForgotPassword";
 import VerifyAccount from "./VerifyAccount";
+import AboutUs from "./Aboutus";
 
 const RoutePage = () => {
   let { pageTitle } = useParams();
@@ -25,6 +26,9 @@ const RoutePage = () => {
       break;
     case "verify-my-account":
       page = <VerifyAccount />;
+      break;
+    case "aboutus":
+      page = <AboutUs />;
       break;
     default:
       page = <PageNotFound />;

@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import * as utility from "../../utility.json";
 import axios from "axios";
+import loginImg from "./../home/images/login.svg";
 
 const Login = () => {
-  const url = `${utility.servers.live}/login`;
+  const url = `${process.env.REACT_APP_URL}/login`;
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [msg, setMsg] = useState("");
@@ -36,9 +36,15 @@ const Login = () => {
           <div className="col-md-6 mb-50px">
             <img
               alt="img"
-              src="images/customs/login.png"
+              src={loginImg}
+              style={{ width: "100%", height: "100%" }}
               className="ml-auto mr-auto"
             />
+            {/* <img
+              alt="img"
+              src="images/customs/login.png"
+              className="ml-auto mr-auto"
+            /> */}
           </div>
           <div className="col-md-6">
             <h1>Log in Now</h1>

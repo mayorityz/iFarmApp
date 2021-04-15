@@ -26,7 +26,7 @@ const Market = ({ user }) => {
     },
   };
   Modal.setAppElement("#root");
-  const url = `${utility.production.server}/allproducts`;
+  const url = `${process.env.REACT_APP_URL}/allproducts`;
 
   useEffect(() => {
     axios

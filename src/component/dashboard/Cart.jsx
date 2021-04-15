@@ -52,7 +52,7 @@ const Cart = ({ user }) => {
     // we have to clean the localDB.
     setNotif("go!");
     axios
-      .post(`${utility.production.server}/products/checkout`, {
+      .post(`${process.env.REACT_APP_URL}/products/checkout`, {
         userId: user.id,
         cart: items,
         price: totalPrice,

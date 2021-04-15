@@ -5,7 +5,7 @@ import { css } from "@emotion/core";
 import PulseLoader from "react-spinners/PulseLoader";
 
 const VerifyAccount = () => {
-  const url = "https://ifarms-app.herokuapp.com/verify-my-account";
+  const url = `${process.env.REACT_APP_URL}/verify-my-account`;
   const parsed = queryString.parse(window.location.search);
   const { email, uuid } = parsed;
 

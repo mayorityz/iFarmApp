@@ -23,8 +23,8 @@ const Products = ({ user }) => {
     },
   };
   Modal.setAppElement("#root");
-  const url = `${utility.production.server}/fetchproducts/${user.id}`;
-  const deleteUrl = `${utility.production.server}/products/deleteitem`;
+  const url = `${process.env.REACT_APP_URL}/fetchproducts/${user.id}`;
+  const deleteUrl = `${process.env.REACT_APP_URL}/products/deleteitem`;
   const [data, setData] = useState(false);
   useEffect(() => {
     axios

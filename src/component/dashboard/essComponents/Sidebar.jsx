@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { MdShoppingCart } from "react-icons/md";
 import { Link } from "react-router-dom";
-import * as url from "../../../utility.json";
 
 const SideBar = () => {
   const logout = () => {
@@ -36,12 +35,12 @@ const SideBar = () => {
             <h5 className="sidenav-heading">MENU</h5>
             <ul id="side-main-menu" className="side-menu list-unstyled">
               <li>
-                <a href={`${url.frontend}/dashboard/index`}>
+                <a href={`/dashboard/index`}>
                   <i className="fa fa-home"></i>Home
                 </a>
               </li>
               <li>
-                <a href={`${url.frontend}/dashboard/marketplace`}>
+                <a href={`/dashboard/marketplace`}>
                   <i className="fa fa-truck"></i>Market Place
                 </a>
               </li>
@@ -61,17 +60,17 @@ const SideBar = () => {
               />
 
               <li>
-                <a href={`${url.frontend}/dashboard/myaccount`}>
+                <a href={`/dashboard/myaccount`}>
                   <i className="fa fa-user-circle-o"></i>My Account
                 </a>
               </li>
               <li>
-                <a href={`${url.frontend}/dashboard/shopping-cart`}>
+                <a href={`/dashboard/shopping-cart`}>
                   <MdShoppingCart /> Shopping Cart
                 </a>
               </li>
               <li>
-                <a href={`${url.frontend}/dashboard/order-history`}>
+                <a href={`/dashboard/order-history`}>
                   <MdShoppingCart /> My Orders
                 </a>
               </li>
@@ -120,9 +119,7 @@ function SideBarLinks(props) {
         <ul id={props.link} className={collapse}>
           {props.sublinks.map((link_, id) => (
             <li key={id}>
-              <a href={`${url.frontend}/dashboard/${link_.url}`}>
-                {link_.title}
-              </a>
+              <a href={`/dashboard/${link_.url}`}>{link_.title}</a>
             </li>
           ))}
         </ul>

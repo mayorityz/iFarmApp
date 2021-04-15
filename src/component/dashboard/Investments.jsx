@@ -7,7 +7,7 @@ import * as Time from "moment";
 import * as utility from "../../utility.json";
 
 const Investment = ({ user }) => {
-  const url = `${utility.production.server}/myinvestments/${user.id}`;
+  const url = `${process.env.REACT_APP_URL}/myinvestments/${user.id}`;
   const [isLoading, Loaded] = useState(true);
   const [data, setData] = useState(false);
   const [details, showDets] = useState([]);
@@ -38,7 +38,7 @@ const Investment = ({ user }) => {
           <div className="container-fluid">
             <ul className="breadcrumb">
               <li className="breadcrumb-item">
-                <a href="/dashboard">Home</a>
+                <a href="/dashboard/index">Home</a>
               </li>
               <li className="breadcrumb-item active">My Investments </li>
             </ul>
@@ -70,43 +70,46 @@ const Investment = ({ user }) => {
                   {!data ? (
                     <div>Fetching Your Data ...</div>
                   ) : (
-                    <table className="table table-hover table-bordered table-responsive table-sm">
-                      <thead className="thead-light">
-                        <tr>
-                          <th>#</th>
-                          <th scope="col">Investment Amount</th>
-                          <th scope="col">Monthly Returns</th>
-                          <th scope="col">Total Payout</th>
-                          <th scope="col">Began</th>
-                          <th scope="col">Completion</th>
-                          <th scope="col">Duration</th>
-                          <th scope="col">Action</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        {data.map((d, i) => (
-                          <tr key={i}>
-                            <td>{i + 1}</td>
-                            <td>&#8358;{commafy(d.investmentAmt)}</td>
-                            <td>&#8358;{commafy(d.monthlyReturn)}</td>
-                            <td>&#8358;{commafy(d.expectedTotal)}</td>
-                            <td>{convert(d.created)}</td>
-                            <td>{convert(d.dueDate)}</td>
-                            <td>{d.duration} months</td>
-                            <td>
-                              <button
-                                onClick={() => {
-                                  showDetails(d._id);
-                                }}
-                                className="btn btn-primary btn-xs"
-                              >
-                                More Details
-                              </button>
-                            </td>
+                    <>
+                      {data.length === 0 && <h4>NO INVESTMENTS FOUND!</h4>}
+                      <table className="table table-hover table-bordered table-responsive table-sm">
+                        <thead className="thead-light">
+                          <tr>
+                            <th>#</th>
+                            <th scope="col">Investment Amount</th>
+                            <th scope="col">Monthly Returns</th>
+                            <th scope="col">Total Payout</th>
+                            <th scope="col">Began</th>
+                            <th scope="col">Completion</th>
+                            <th scope="col">Duration</th>
+                            <th scope="col">Action</th>
                           </tr>
-                        ))}
-                      </tbody>
-                    </table>
+                        </thead>
+                        <tbody>
+                          {data.map((d, i) => (
+                            <tr key={i}>
+                              <td>{i + 1}</td>
+                              <td>&#8358;{commafy(d.investmentAmt)}</td>
+                              <td>&#8358;{commafy(d.monthlyReturn)}</td>
+                              <td>&#8358;{commafy(d.expectedTotal)}</td>
+                              <td>{convert(d.created)}</td>
+                              <td>{convert(d.dueDate)}</td>
+                              <td>{d.duration} months</td>
+                              <td>
+                                <button
+                                  onClick={() => {
+                                    showDetails(d._id);
+                                  }}
+                                  className="btn btn-primary btn-xs"
+                                >
+                                  More Details
+                                </button>
+                              </td>
+                            </tr>
+                          ))}
+                        </tbody>
+                      </table>
+                    </>
                   )}
                 </div>
               </div>

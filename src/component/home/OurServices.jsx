@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const OurServices = () => {
   return (
@@ -75,6 +76,7 @@ const OurServices = () => {
               </div>
             </div>
           </div>
+          <hr />
         </div>
       </section>
 
@@ -85,22 +87,37 @@ const OurServices = () => {
             Using the iFarms platform is as easy as ABC ...
           </p>
           <div className="row">
-            <div className="col-md-4 p-relative">
+            <div className="col-md-3 p-relative">
               <div className="mt-25px mb-25px pr-30px pl-30px">
                 <span className="p-relative d-inline-block bg-gray color-blue radius-50 text-center fs-30 fw-600 mb-15px transition-3">
                   01
                 </span>
-                <h4>Select Product</h4>
+                <h4>Create An Account</h4>
                 <p>
-                  After creating your account, select the product you want to
-                  buy or sell.
+                  Go to the <Link to="/newaccount">Registration</Link> page,
+                  fill in all required details and a verification link will be
+                  sent to your email for confirmation.
                 </p>
               </div>
             </div>
-            <div className="col-md-4 p-relative">
+
+            <div className="col-md-3 p-relative">
               <div className="mt-25px mb-25px pr-30px pl-30px">
                 <span className="p-relative d-inline-block bg-gray color-blue radius-50 text-center fs-30 fw-600 mb-15px transition-3">
                   02
+                </span>
+                <h4>Select Product</h4>
+                <p>
+                  After creating your account and verifying it, login to your
+                  dashboard to access our wide variety of produce to start
+                  buying. Just add to cart.
+                </p>
+              </div>
+            </div>
+            <div className="col-md-3 p-relative">
+              <div className="mt-25px mb-25px pr-30px pl-30px">
+                <span className="p-relative d-inline-block bg-gray color-blue radius-50 text-center fs-30 fw-600 mb-15px transition-3">
+                  03
                 </span>
                 <h4>Buy Safely</h4>
                 <p>
@@ -109,10 +126,10 @@ const OurServices = () => {
                 </p>
               </div>
             </div>
-            <div className="col-md-4 p-relative last-one">
+            <div className="col-md-3 p-relative last-one">
               <div className="mt-25px mb-25px pr-30px pl-30px">
                 <span className="p-relative d-inline-block bg-gray color-blue radius-50 text-center fs-30 fw-600 mb-15px transition-3">
-                  03
+                  04
                 </span>
                 <h4>Receive Delivery</h4>
                 <p>

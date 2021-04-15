@@ -8,7 +8,7 @@ import * as utility from "../../utility.json";
 const NewProduct = ({ user }) => {
   const alert = useAlert();
 
-  const url = `${utility.production.server}/newproduct`;
+  const url = `${process.env.REACT_APP_URL}/newproduct`;
   const [title, setTitle] = useState("");
   const [category, setCategory] = useState("");
   const [price, setPrice] = useState("");
@@ -118,6 +118,14 @@ const NewProduct = ({ user }) => {
                         <option value="">-- Select Category --</option>
                         <option value="cash crop">Cash Crops</option>
                         <option value="vegetable">Vegetable</option>
+                        <option value="grain">Grain</option>
+                        <option value="tubber">Tubber</option>
+                        <option value="fruit">Fruit</option>
+                        <option value="palm-oil">Palm Oil</option>
+                        <option value="groundnut-oil">Groundnut Oil</option>
+                        <option value="meat-fish">Meat/Fish</option>
+                        <option value="eggs">Eggs</option>
+                        <option value="dairy">Dairy</option>
                       </select>
                     </div>
                     <div className="form-group">

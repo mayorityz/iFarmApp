@@ -1,16 +1,20 @@
 import React from "react";
+import apples from "./images/apple.jpg";
+import harvest from "./images/harvet.jpg";
+import orchard from "./images/orchard.jpg";
 
 const AboutSection = () => {
   return (
     <section className="about-area sec-padding" data-scroll-index="2">
       <div className="container">
+        <hr />
         <div className="row mb-25px">
           <div className="col-md-6">
             <div
               className="mt-25px mb-25px wow fadeInLeft"
               data-wow-delay="0.45s"
             >
-              <img src="images/v.png" alt="img" />
+              <img src={orchard} alt="img" />
             </div>
           </div>
           <div className="col-md-6">
@@ -40,6 +44,7 @@ const AboutSection = () => {
             </div>
           </div>
         </div>
+        <hr />
         <div className="row mb-25px">
           <div className="col-md-6">
             <div
@@ -85,17 +90,18 @@ const AboutSection = () => {
               className="mt-25px mb-25px wow fadeInRight"
               data-wow-delay="0.45s"
             >
-              <img src="images/x.png" alt="img" />
+              <img src={harvest} alt="img" />
             </div>
           </div>
         </div>
+        <hr />
         <div className="row mb-25px">
           <div className="col-md-6">
             <div
               className="mt-25px mb-25px wow fadeInLeft"
               data-wow-delay="0.45s"
             >
-              <img src="images/ff.png" alt="img" />
+              <img src={apples} alt="img" />
             </div>
           </div>
           <div className="col-md-6">
@@ -137,6 +143,7 @@ const AboutSection = () => {
             </div>
           </div>
         </div>
+        <hr />
       </div>
     </section>
   );

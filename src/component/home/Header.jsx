@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-
+import tomato from "./images/tomatoes.jpg";
 const HomeHeader = () => {
   return (
     <>
@@ -21,7 +21,7 @@ const HomeHeader = () => {
               </Link>
             </div>
             <div className="col-md-6 text-center">
-              <img alt="img" src="images/rk.png" />
+              <img alt="img" src={tomato} className="header-img" />
             </div>
           </div>
         </div>

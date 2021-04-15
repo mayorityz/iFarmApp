@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import * as UTILITY from "../../utility.json";
 import axios from "axios";
+import loginImg from "./../home/images/login.svg";
 
 const NewAccount = () => {
-  const url = `${UTILITY.servers.live}/newuser`;
+  const url = `${process.env.REACT_APP_URL}/newuser`;
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
@@ -57,7 +57,8 @@ const NewAccount = () => {
           <div className="col-md-6 mb-50px">
             <img
               alt="img"
-              src="images/customs/auth.png"
+              src={loginImg}
+              style={{ width: "100%", height: "100%" }}
               className="ml-auto mr-auto"
             />
           </div>
@@ -151,7 +152,7 @@ const NewAccount = () => {
           </div>
         </div>
       </div>
-      <div className="pattern p-absolute"></div>
+      {/* <div className="pattern p-absolute"></div> */}
     </section>
   );
 };

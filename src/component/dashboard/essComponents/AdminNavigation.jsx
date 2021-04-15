@@ -115,7 +115,7 @@ const AdminNav = () => {
                     <FiXCircle style={{ fontSize: "20px" }} />
                   )}
                 </a>
-                <a href="/dashboard" className="navbar-brand">
+                <a href="#" className="navbar-brand">
                   <div className="brand-text d-none d-md-inline-block">
                     <span>Welcome Back!!! </span>
                   </div>

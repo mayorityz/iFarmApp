@@ -9,7 +9,7 @@ import * as utility from "../../utility.json";
 
 const NewInvestment = (props) => {
   const userID = props.user.id;
-  const url = `${utility.production.server}/newinvestment`;
+  const url = `${process.env.REACT_APP_URL}/newinvestment`;
   const [investmentAmt, setInvestment] = useState(100000);
   const [duration, setDuration] = useState(3);
   const [monthly, setMonthly] = useState("");
@@ -106,7 +106,7 @@ const NewInvestment = (props) => {
                       days.
                     </li>
                     <li>
-                      If your investment is rejected, you will refunded
+                      If your investment is rejected, you will be refunded
                       immediately with interests.
                     </li>
                     <li>

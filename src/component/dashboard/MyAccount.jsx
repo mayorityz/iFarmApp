@@ -14,8 +14,8 @@ const MyAccount = ({ user }) => {
   const [LGA, setLGA] = useState("");
   const [state, setState] = useState("");
   const [img, setImg] = useState("");
-  const url = `https://ifarms-app.herokuapp.com/profile/${user.id}`;
-  const updateUrl = `https://ifarms-app.herokuapp.com/updateprofile/${user.id}`;
+  const url = `${process.env.REACT_APP_URL}/${user.id}`;
+  const updateUrl = `${process.env.REACT_APP_URL}/${user.id}`;
   const defaultImg = "../images/dashboard/user_512x512.png";
   useEffect(() => {
     axios

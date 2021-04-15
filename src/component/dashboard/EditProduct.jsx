@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import * as utility from "../../utility.json"
 
-const url = `${utility.production.server}/products/edit`;
+const url = `${process.env.REACT_APP_URL}/products/edit`;
 const EditProduct = ({ data }) => {
   const [id, setId] = useState("");
   const [title, setTitle] = useState("");
@@ -90,8 +89,16 @@ const EditProduct = ({ data }) => {
             }}
           >
             <option value="">-- Select Product Category --</option>
+            <option value="cash crop">Cash Crops</option>
             <option value="vegetable">Vegetable</option>
-            <option value="cash crop">Cash Crop</option>
+            <option value="grain">Grain</option>
+            <option value="tubber">Tubber</option>
+            <option value="fruit">Fruit</option>
+            <option value="palm-oil">Palm Oil</option>
+            <option value="groundnut-oil">Groundnut Oil</option>
+            <option value="meat-fish">Meat/Fish</option>
+            <option value="eggs">Eggs</option>
+            <option value="dairy">Dairy</option>
           </select>
         </div>
 
@@ -122,6 +129,8 @@ const EditProduct = ({ data }) => {
             <option>Kilograms</option>
             <option>Bags</option>
             <option>Weight</option>
+            <option>Grams</option>
+            <option>Litres</option>
           </select>
         </div>
 

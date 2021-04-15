@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Sugar } from "react-preloaders";
 import axios from "axios";
-import * as utility from "../../utility.json";
 
 const Dashboard = ({ user }) => {
   const { id } = user;
@@ -14,7 +13,7 @@ const Dashboard = ({ user }) => {
     expectedReturns: 0,
     totalSales: 0,
   });
-  const url = `${utility.production.server}/user/dashboard`;
+  const url = `${process.env.REACT_APP_URL}/user/dashboard`;
   useEffect(() => {
     const res = async () => {
       axios

@@ -6,7 +6,7 @@ import * as utility from "../../utility.json";
 const Orders = ({ user }) => {
   const { id } = user;
   const [myorders, setorders] = useState({ status: false, orders: [] });
-  const url = `${utility.production.server}/orders/myorders`;
+  const url = `${process.env.REACT_APP_URL}/orders/myorders`;
   useEffect(() => {
     axios
       .post(url, { id })

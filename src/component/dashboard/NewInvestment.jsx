@@ -24,7 +24,7 @@ const NewInvestment = (props) => {
     if (amount < 1000000) {
       // let m = Math.floor((0.02 / duration) * amount);
 
-      let yearlyReturn = 0.02 * amount;
+      let yearlyReturn = 0.025 * amount;
       let monthsReturn = Math.floor(
         yearlyReturn / duration + amount / duration
       );
@@ -32,7 +32,7 @@ const NewInvestment = (props) => {
       setMonthly(monthsReturn);
       setTotal(yearlyReturn);
     } else {
-      let yearlyReturn = 0.03 * amount;
+      let yearlyReturn = 0.035 * amount;
       let monthsReturn = Math.floor(
         yearlyReturn / duration + amount / duration
       );
@@ -107,7 +107,7 @@ const NewInvestment = (props) => {
                     </li>
                     <li>
                       If your investment is rejected, you will be refunded
-                      immediately with interests.
+                      immediately without interests.
                     </li>
                     <li>
                       Minimum Investment is &#8358;100,000 & Maximum is
@@ -118,10 +118,10 @@ const NewInvestment = (props) => {
                   <hr />
                   <ul>
                     <li>
-                      2% per month across board for amounts between N100,000 and
-                      N1,000,000
+                      2.5% per month across board for amounts between N100,000
+                      and N1,000,000
                     </li>
-                    <li>3% per month above &#8358;1,000,000</li>
+                    <li>3.5% per month above &#8358;1,000,000</li>
                   </ul>
                 </div>
               </div>
@@ -151,7 +151,7 @@ const NewInvestment = (props) => {
                         onChange={({ target }) => setDuration(target.value)}
                         value={duration}
                       >
-                        <option value="3">3 Months</option>
+                        <option value="4">4 Months</option>
                         <option value="6">6 Months</option>
                         <option value="9">9 Months</option>
                         <option value="12">one year</option>

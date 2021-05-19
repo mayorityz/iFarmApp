@@ -7,6 +7,9 @@ import PageNotFound from "./NotFound";
 import LostPassword from "./ForgotPassword";
 import VerifyAccount from "./VerifyAccount";
 import AboutUs from "./Aboutus";
+import MarketPlace from "./MarketPlace";
+import Blog from "./Blog";
+import MyCart from "./MyCart";
 
 const RoutePage = () => {
   let { pageTitle } = useParams();
@@ -18,8 +21,14 @@ const RoutePage = () => {
     case "newaccount":
       page = <NewAccount />;
       break;
+    case "marketplace":
+      page = <MarketPlace />;
+      break;
     case "contactus":
       page = <ContactUs />;
+      break;
+    case "blog":
+      page = <Blog />;
       break;
     case "forgotpassword":
       page = <LostPassword />;
@@ -29,6 +38,9 @@ const RoutePage = () => {
       break;
     case "aboutus":
       page = <AboutUs />;
+      break;
+    case "my-cart":
+      page = <MyCart />;
       break;
     default:
       page = <PageNotFound />;

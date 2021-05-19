@@ -1,4 +1,5 @@
 import React from "react";
+import Cart from "../dashboard/Cart";
 
 const ContactUs = () => {
   return (
@@ -9,6 +10,7 @@ const ContactUs = () => {
             <div className="col-md-12 mb-20px z-index-1">
               <h1 className="color-blue">Contact Us</h1>
             </div>
+
             <div className="col-md-8 text-center">
               <img alt="img" src="images/y.png" className="ml-auto mr-auto" />
             </div>
@@ -19,32 +21,12 @@ const ContactUs = () => {
       <section className="contact-area sec-padding">
         <div className="container">
           <h1 className="title-h">Contact Us</h1>
-          <p className="title-p">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua.
-          </p>
-          <div className="row">
+          <p className="title-p"></p>
+          <div className="row justify-content-md-center">
             <div className="col-md-6">
-              <div className="address">
-                <p className="mb-30px">
-                  <i className="color-blue bg-gray radius-50 fs-35 mr-10px text-center icon-map"></i>
-                  52, Hillview Estate, Life Camp, Abuja.
-                </p>
-              </div>
-              <div className="address">
-                <p className="mb-30px">
-                  <i className="color-blue bg-gray radius-50 fs-35 mr-10px text-center icon-phone"></i>
-                  +817-443-2647
-                </p>
-              </div>
-              <div className="address">
-                <p className="mb-30px">
-                  <i className="color-blue bg-gray radius-50 fs-35 mr-10px text-center icon-envelope"></i>
-                  jmmisadev@gmail.com
-                </p>
-              </div>
-            </div>
-            <div className="col-md-6">
+              <p className="text-center">
+                We promise not to spam your email with unneccessary information.
+              </p>
               <div className="contact-form">
                 <form
                   className="form"

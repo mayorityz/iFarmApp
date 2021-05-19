@@ -153,6 +153,8 @@ const NewProduct = ({ user }) => {
                         <option value="Kilograms">Kilograms</option>
                         <option value="Bag">Bags</option>
                         <option value="Weight">Weight</option>
+                        <option value="Gram">Gram</option>
+                        <option value="Litre">Litre</option>
                       </select>
                     </div>
                     <div className="form-group">

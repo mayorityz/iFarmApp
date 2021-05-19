@@ -5,7 +5,6 @@ import { Sugar } from "react-preloaders";
 import * as Time from "moment";
 import commafy from "commafy";
 import EditProduct from "./EditProduct";
-import * as utility from "../../utility.json";
 
 const Products = ({ user }) => {
   const [modalState, setModalState] = useState([]);

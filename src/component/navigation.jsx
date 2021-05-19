@@ -75,6 +75,20 @@ const Navigation = () => {
                 </Link>
               </li>
               <li className="nav-item">
+                <Link
+                  to="/marketplace"
+                  className="nav-link"
+                  onClick={closeMenu}
+                >
+                  Market Place
+                </Link>
+              </li>
+              <li className="nav-item">
+                <Link to="/blog" className="nav-link" onClick={closeMenu}>
+                  Blog
+                </Link>
+              </li>
+              <li className="nav-item">
                 <Link to="/aboutus" className="nav-link" onClick={closeMenu}>
                   About Us
                 </Link>
@@ -82,6 +96,11 @@ const Navigation = () => {
               <li className="nav-item">
                 <Link to="/contactus" className="nav-link" onClick={closeMenu}>
                   Contact Us
+                </Link>
+              </li>
+              <li className="nav-item">
+                <Link to="/my-cart" className="nav-link" onClick={closeMenu}>
+                  My Cart
                 </Link>
               </li>
               <li className="nav-item log-in">

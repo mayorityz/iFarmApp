@@ -35,10 +35,20 @@ const Product = ({ product, products, openModal }) => {
     }
   };
 
+  const style = {
+    image: {
+      height: 500,
+      overflowY: "hidden",
+      backgroundColor: "#f8f8ff",
+    },
+  };
+
   return (
     <div className="col-md-4">
       <div className="card">
-        <img src={product.imgUrls[0]} className="card-img-top" alt="..." />
+        <div style={style.image}>
+          <img src={product.imgUrls[0]} className="card-img-top" alt="..." />
+        </div>
         <div className="card-body">
           <h6 className="card-title">
             {product.title} - &#8358;{commafy(product.price)} /{" "}
@@ -55,7 +65,7 @@ const Product = ({ product, products, openModal }) => {
             ) : null}
           </div>
           <br />
-          <div>
+          <div style={{ display: "flex", justifyContent: "space-evenly" }}>
             <button
               onClick={() => {
                 openModal(product);

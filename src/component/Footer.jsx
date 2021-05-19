@@ -10,32 +10,48 @@ const Footer = () => {
     <>
       <section className="footer-area sec-padding" style={footerStyle}>
         <div className="container">
-          <div className="row justify-content-md-center">
-            <div className="col-md-6">
-              <div className="mt-25px mb-25px">
-                <h4 className="mb-20px text-center">Contact Us</h4>
-                <p className="mb-20px text-center">You can reach us at:</p>
-                <h6 className=" text-center">
+          <div className="mt-25px mb-25px">
+            <div className="row">
+              <div className="col-md-4">
+                <h5>About Us.</h5>
+                <p>
+                  We want to bring healthy organic food to every people as well
+                  as make agriculture easy and accessible to everyone. Together
+                  we can create jobs by making agriculture easy to engage in and
+                  profitable to anyone, anywhere. We desire to improve rural
+                  standard of living by enabling rural farmers through access to
+                  funds, and market proximity regardless of their farm
+                  locations.
+                </p>
+              </div>
+              <div className="col-md-4">
+                <h5 className="mb-20px">Contact Us</h5>
+                <h6 className="">
                   <i className="fa fa-map-marker mr-5px fs-15 color-blue bg-gray radius-50 address text-center"></i>
                   52, Hillview Estate, Life Camp, Abuja.
                 </h6>
-                <h6 className=" text-center">
+                <h6 className="">
                   <i className="fa fa-map-marker mr-5px fs-15 color-blue bg-gray radius-50 address text-center"></i>
                   46, Autumn Ln, Burlington, NJ
                 </h6>
-                <h6 className=" text-center">
+                <h6 className="">
                   <i className="fa fa-phone mr-5px fs-15 color-blue bg-gray radius-50 address text-center"></i>{" "}
                   +1281-640-6485
                 </h6>
-                <h6 className="mb-10px text-center">
+                <h6 className="mb-10px">
                   <i className="fa fa-envelope mr-5px fs-15 color-blue bg-gray radius-50 address text-center"></i>
                   jmmisadev@gmail.com
                 </h6>
-                <h6 className="mb-30px text-center">
+                <h6 className="mb-30px">
                   <i className="fa fa-envelope mr-5px fs-15 color-blue bg-gray radius-50 address text-center"></i>
                   info@jmmisa.com
                 </h6>
-                {/* <a
+              </div>
+              <div className="col-md-4">
+                <h5>We are social</h5>
+              </div>
+            </div>
+            {/* <a
                   href="#0"
                   className="social color-blue color-fff-hvr bg-orange-hvr bg-gray text-center radius-50 fs-15 d-inline-block"
                 >
@@ -53,8 +69,6 @@ const Footer = () => {
                 >
                   <i className="fa fa-linkedin"></i>
                 </a> */}
-              </div>
-            </div>
           </div>
         </div>
       </section>

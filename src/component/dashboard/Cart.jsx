@@ -15,7 +15,7 @@ const getTotal = (x) => {
   }
   return t;
 };
-const Cart = ({ user }) => {
+const Cart = ({ user, isNotAdmin }) => {
   let storage = window.localStorage;
   let url = window.location.search;
   let storageItems = storage.getItem("ifarms-cart");
@@ -76,20 +76,22 @@ const Cart = ({ user }) => {
 
   return (
     <>
-      <div>
-        <div className="breadcrumb-holder">
-          <div className="container-fluid">
-            <ul className="breadcrumb">
-              <li className="breadcrumb-item">
-                <a href="/dashboard">Home</a>
-              </li>
-              <li className="breadcrumb-item active">
-                <IoIosCart /> My Cart{" "}
-              </li>
-            </ul>
+      {isNotAdmin || (
+        <div>
+          <div className="breadcrumb-holder">
+            <div className="container-fluid">
+              <ul className="breadcrumb">
+                <li className="breadcrumb-item">
+                  <a href="/dashboard">Home</a>
+                </li>
+                <li className="breadcrumb-item active">
+                  <IoIosCart /> My Cart{" "}
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
-      </div>
+      )}
 
       <section className="mt-30px mb-30px">
         <div className="container">
@@ -112,13 +114,13 @@ const Cart = ({ user }) => {
           ) : (
             <>
               <div className="row">
-                <div className="col-md-8">
+                <div className={isNotAdmin ? "col-md-12" : "col-md-8"}>
                   <div className="card">
                     <div className="card-header">
                       {" "}
                       <IoIosCart /> My Shopping Cart ({items.length} items).
                     </div>
-                    <div className="card-body">
+                    <div className="card-body table-responsive">
                       <table className="table table-hover table-stripped">
                         <thead>
                           <tr>
@@ -153,30 +155,32 @@ const Cart = ({ user }) => {
                     </div>
                   </div>
                 </div>
-                <div className="col-md-4">
-                  <div className="card">
-                    <div className="card-header">
-                      <IoIosCart /> CheckOut.
-                    </div>
-                    <div className="card-body">
-                      <h1 className="text-center">
-                        Total : &#8358;{commafy(totalPrice)}.
-                      </h1>
-                      <hr />
-                      {notification ? (
-                        <div className="alert alert-primary text-center">
-                          Loading Payment!
-                        </div>
-                      ) : null}
-                      <button
-                        className="btn btn-warning btn-lg btn-block"
-                        onClick={checkout}
-                      >
-                        <IoIosCart /> CheckOut Now!
-                      </button>
+                {isNotAdmin || (
+                  <div className="col-md-4">
+                    <div className="card">
+                      <div className="card-header">
+                        <IoIosCart /> CheckOut.
+                      </div>
+                      <div className="card-body">
+                        <h1 className="text-center">
+                          Total : &#8358;{commafy(totalPrice)}.
+                        </h1>
+                        <hr />
+                        {notification ? (
+                          <div className="alert alert-primary text-center">
+                            Loading Payment!
+                          </div>
+                        ) : null}
+                        <button
+                          className="btn btn-warning btn-lg btn-block"
+                          onClick={checkout}
+                        >
+                          <IoIosCart /> CheckOut Now!
+                        </button>
+                      </div>
                     </div>
                   </div>
-                </div>
+                )}
               </div>
             </>
           )}
